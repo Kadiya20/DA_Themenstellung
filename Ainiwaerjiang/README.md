@@ -286,7 +286,7 @@ Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzero
 
 ### Eventhandling in einer JavaScript Applikation.
 
-# Unterschiede zwischen ASP.NET und Vue.js in Bezug auf die Eventhandlung
+#### Unterschiede zwischen ASP.NET und Vue.js in Bezug auf die Eventhandlung
 
 ## ASP.NET
 
