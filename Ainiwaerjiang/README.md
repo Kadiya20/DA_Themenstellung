@@ -286,7 +286,28 @@ Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzero
 
 ### Eventhandling in einer JavaScript Applikation.
 
-TODO
+# Unterschiede zwischen ASP.NET und Vue.js in Bezug auf die Eventhandlung
+
+## ASP.NET
+
+ASP.NET ist ein serverseitiges Webframework, das zur Entwicklung von Webanwendungen verwendet wird. Bei der Eventbehandlung in ASP.NET wird das Postback-Modell verwendet. Hier sind die grundlegenden Konzepte der Eventbehandlung in ASP.NET:
+
+- **Serverseitige Events:** In ASP.NET werden die meisten Events serverseitig behandelt. Das bedeutet, dass der Server die Events empfängt, verarbeitet und die entsprechende Aktion ausführt. Die Events werden durch die Interaktion des Benutzers mit den Websteuerelementen ausgelöst.
+
+- **PostBack-Modell:** Beim Auslösen eines Events wird eine Postback-Anforderung an den Server gesendet. Der Server verarbeitet das Event, führt die erforderlichen Aktionen aus und rendert die aktualisierte Seite zurück zum Client. Dies führt zu einem vollständigen Seitenneuladen und kann die Benutzererfahrung beeinträchtigen.
+
+- **ViewState:** ASP.NET verwendet das ViewState-Konzept, um den Zustand der Seite und der Websteuerelemente zwischen den Postbacks zu speichern. Dadurch können die Websteuerelemente ihren Zustand beibehalten und die Eventbehandlung erleichtern.
+
+## Vue.js
+
+Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzeroberflächen. Bei der Eventbehandlung in Vue.js wird ein reaktiver Ansatz verwendet. Hier sind die grundlegenden Konzepte der Eventbehandlung in Vue.js:
+
+- **Dom-Events:** Vue.js ermöglicht die direkte Behandlung von DOM-Events in den Vorlagenkomponenten. Sie können den `v-on`-Direktiven verwenden, um Events abzuhören und die entsprechenden Methoden aufzurufen.
+
+- **Komponentenbasierte Events:** Vue.js ermöglicht die Kommunikation zwischen Komponenten über das Eventbus-System. Komponenten können Events auslösen und andere Komponenten können diese Events abhören und entsprechende Aktionen ausführen. Dadurch wird eine lose Kopplung zwischen den Komponenten erreicht.
+
+- **Reaktivität:** Vue.js bietet eine reaktive Datenbindung, bei der Änderungen an den Daten automatisch in der Benutzeroberfläche reflektiert werden. Dies ermöglicht eine effiziente und reibungslose Aktualisierung der Benutzeroberfläche, ohne die gesamte Seite neu zu laden.
+
 
 ### Komponentenkonzept von Vue.js.
 
