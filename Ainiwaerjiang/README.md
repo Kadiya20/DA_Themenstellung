@@ -270,9 +270,19 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
 
    
 
-
-
 ## Vue.js als clientseitiges Framework. (10 Seiten)
+
+Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzeroberflächen. Es zeichnet sich durch seine Einfachheit, Flexibilität und leistungsstarke Funktionen aus. Vue.js wurde entwickelt, um die Erstellung interaktiver Webanwendungen zu erleichtern, indem es eine strukturierte und komponentenbasierte Herangehensweise bietet.
+
+## Warum Vue.js verwenden?
+
+- **Einfach zu erlernen und zu verwenden:** Vue.js ist relativ einfach zu erlernen, insbesondere für Entwickler, die bereits Erfahrung mit HTML, CSS und JavaScript haben. Es bietet eine klare und gut dokumentierte Syntax, die leicht verständlich ist.
+
+- **Komponentenbasierte Architektur:** Vue.js ermöglicht es Entwicklern, ihre Benutzeroberfläche in wiederverwendbare Komponenten aufzuteilen. Dies fördert die Wartbarkeit und Wiederverwendbarkeit des Codes und erleichtert die Zusammenarbeit zwischen den Entwicklern.
+
+- **Reaktivität:** Vue.js bietet eine reaktive Datenbindung, bei der Änderungen an den Daten automatisch in der Benutzeroberfläche reflektiert werden. Dadurch bleibt die Benutzeroberfläche stets synchronisiert und Entwickler müssen sich nicht um manuelle Aktualisierungen kümmern.
+
+- **Leistungsfähige Funktionen:** Vue.js bietet eine breite Palette von leistungsstarken Funktionen wie z.B. Routing, Zustandsverwaltung und Animationen. Diese Funktionen werden durch offizielle Plugins und Erweiterungen unterstützt, was die Entwicklung
 
 ### Eventhandling in einer JavaScript Applikation.
 
@@ -290,7 +300,7 @@ TODO
 
 ### Datenstruktur zum Speichern der Call Objekte.
 
-TODO
+TODOd
 
 ### Dynamische Generierung des Layout auf Basis von JSON Daten.
 
