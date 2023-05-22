@@ -1,5 +1,6 @@
 # Individuelle Themenstellung
 EINLEITUNG INDIVIDUELLER THEMENSTELLUNG
+
 Diese Arbeit untersucht verschiedene Aspekte der Benutzeroberflächenentwicklung und der Implementierung von JavaScript-Applikationen. Im Fokus stehen die Unterschiede zwischen Windows Forms und ASP WebForms, die Verwendung von Vue.js als clientseitigem Framework, das Eventhandling in JavaScript-Applikationen, das Komponentenkonzept von Vue.js, der Einsatz von fertigen Komponenten von PrimeVue und die Verwendung von Services in clientseitigen Applikationen.
 Die Unterschiede zwischen Windows Forms und ASP WebForms werden analysiert und ihre Vor- und Nachteile untersucht. Vue.js wird als leistungsstarkes clientseitiges Framework betrachtet, das ein effizientes Komponentenkonzept für wiederverwendbare UI-Komponenten bietet. Die Verwendung von PrimeVue-Komponenten zur Beschleunigung der Entwicklung und die Implementierung von Eventhandling in JavaScript-Applikationen werden behandelt. Außerdem werden Services in clientseitigen Applikationen untersucht, insbesondere die Datenstruktur zum Speichern von Call-Objekten und die dynamische Generierung des Layouts basierend auf JSON-Daten.
 
@@ -49,18 +50,225 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
      Um das Problem zu lösen, wurde in ASP.NET die DataSource-Eigenschaft des GridView festgelegt, um die Datenquelle anzugeben, und dann der Databind-Vorgang durchgeführt, um die Daten an das GridView zu binden.
      Beispiel: 
      // ASP.NET
-      ![Gridview](/Ainiwaerjiang/img/GridView.png)
-       
+     ```csharp
+             <div class="container-action-area">
+                <nav class="navbar-actions"></nav>
+                <div class="container-service-interface">
+                    <asp:UpdatePanel ID="paramSection" runat="server" UpdateMode="Conditional" EnableViewState="true" ViewStateMode="Enabled">
+                        <ContentTemplate>
+                            <asp:GridView ID="paramGridView" runat="server"
+                                CellPadding="10" GridLines="None"
+                                OnRowDataBound="paramGridView_RowDataBound"
+                                Visible="true" OnSelectedIndexChanged="paramGridView_SelectedIndexChanged"
+                                AutoGenerateSelectButton="true" DataKeyNames="Parameter" CssClass="table table-borderless table-striped" EnableViewState="true" ViewStateMode="Enabled">
+                                <Columns>
+                                </Columns>
+                            </asp:GridView>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+
+     ```       
 
 4. Unterschiede in der Verwendung von Tag Properties in ASP.NET
      Ein weiterer Unterschied zwischen Windows Forms und ASP.NET betraf die Verwendung von Tag-Eigenschaften. In Windows Forms ermöglicht die Tag-Eigenschaft das Zuweisen von zusätzlichen Informationen oder Objekten zu einem Steuerelement. Dies ist besonders nützlich, um das ausgewählte oder bearbeitete Objekt in einem Treeview zu identifizieren.Da ASP.NET Webanwendungen keine direkte Tag-Eigenschaft bieten, mussten wir eine alternative Lösung finden. Wir haben eine Hilfsklasse erstellt und die Informationen über das ausgewählte Objekt in einem JSON gespeichert. Mithilfe eines JsonParsers konnten wir das Objekt in ein JSON umwandeln und speichern. Hier ist ein Indem wir eine Hilfsklasse erstellt und die JSON-Konvertierung verwendet haben, konnten wir die Funktionalität der Tag-Eigenschaft in ASP.NET Webanwendungen replizieren.
      //Win-Form
-     ![WindowsForm](/Ainiwaerjiang/img/winForm_TagBsp.png)
-     ![WindowsForm](/Ainiwaerjiang/img/winForm_TagBsp2.png)
+     ```csharp
+      private void DataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (workSpaceTreeView.SelectedNode.Tag is Action)
+            {
+                ((Action)workSpaceTreeView.Tag).SaveDictionaryToParameters(SaveProperties(DataGridView, ((Action)workSpaceTreeView.SelectedNode.Tag).Name));
+                UpdateNodeParams(workSpaceTreeView.SelectedNode);
+            }
+            if (workSpaceTreeView.SelectedNode.Tag is InputParameters)
+            {
+            }
+        }
+     ```
+     ```csharp
+     private void clone_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                //clone
+                //treenodeToClone
+                TreeNode selectedNode = workSpaceTreeView.SelectedNode;
+
+                if (workSpaceTreeView.SelectedNode.Tag is Call)
+                {
+
+                    Call selectedCall = (Call)selectedNode.Tag;
+
+                    Call newCall = new Call()
+                    {
+                        Name = GetNextCopyCallName(selectedCall.Name, this.Calls, "Copy"),
+                        Id = selectedCall.Id,
+                        description = selectedCall.description,
+                        Operation = selectedCall.Operation,
+                        TemplatePath = selectedCall.TemplatePath,
+                        Actions = new List<Action>(),
+                        ServiceUrl = selectedCall.ServiceUrl
+                    };
+
+                    TreeNode newNode = new TreeNode { Text = newCall.Name, Tag = newCall };
+                    Calls.Add(newCall);
+                    // add the nodes 
+                    workSpaceTreeView.Nodes.Add(newNode);
+                    workSpaceTreeView.SelectedNode = newNode;
+                    UpdateNodeParams(selectedNode);
+
+                    foreach (TreeNode treeNode in selectedNode.Nodes)
+                    {
+                        //clone the action of the calls
+                        TreeNode newTreeNode = new TreeNode();
+                        if (treeNode.Tag is Action)
+                        {
+                            Action selectedAction = (Action)treeNode.Tag;
+                            Action newAction = new Action(selectedAction.Name, selectedAction.Parameters, selectedAction.ImagePath);
+
+                            newCall.Actions.Add(newAction);
+                            newTreeNode = CreateNewTreeNode(newTreeNode, treeNode, newNode, newAction.Name, newAction);
+                        }
+                        else if (treeNode.Tag is InputParameters)
+                        {
+                            InputParameters selectedInputParameter = (InputParameters)treeNode.Tag;
+                            newCall.InputParams = selectedInputParameter;
+                            newTreeNode = CreateNewTreeNode(newTreeNode, treeNode, newNode, Constants.InputParameters, newCall.InputParams);
+                        }
+                        else if (treeNode.Tag is AzLogin)
+                        {
+                            AzLogin selectedAzLogin = (AzLogin)treeNode.Tag;
+                            newCall.Azlogin = selectedAzLogin;
+                            newTreeNode = CreateNewTreeNode(newTreeNode, treeNode, newNode, Constants.AzureadLogin, newCall.Azlogin);
+                        }
+                        else if (treeNode.Tag is ServiceHeader)
+                        {
+                            ServiceHeader selectedServiceHeader = (ServiceHeader)treeNode.Tag;
+                            newCall.ServiceHeader = selectedServiceHeader;
+                            newTreeNode = CreateNewTreeNode(newTreeNode, treeNode, newNode, Constants.ServiceHeader, newCall.ServiceHeader);
+                        }
+                    }
+                }
+                _madeChanges = true;
+                GrayOut();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(Constants.ItemCloneError + "\n" + exc.Message, Constants.ItemCloneError);
+            }
+
+        }
+     ```
+    
      //Web-Form
-     ![WebForm](/Ainiwaerjiang/img/webForm_helperKlass.png)
-     ![WebForm](/Ainiwaerjiang/img/webForm_Addcall.png)
-     ![WebForm](/Ainiwaerjiang/img/webForm_deletecall.png)
+
+     ```csharp
+     internal static bool TryParseJson<T>(string input, out T result)
+        {
+            bool success = true;
+            var settings = new JsonSerializerSettings
+            {
+                Error = (sender, args) => { success = false; args.ErrorContext.Handled = true; },
+                MissingMemberHandling = MissingMemberHandling.Error
+            };
+            result = JsonConvert.DeserializeObject<T>(input, settings);
+            return success;
+        }
+     ```
+
+     ```csharp
+     private void AddCall()
+        {
+
+            try
+            {
+                Call callToAdd = new Call()
+                {
+                    Id = Guid.NewGuid(),
+                    //Operation = new List<string>(),
+                    TemplatePath = "",
+                    ImagePath = "",
+                    Actions = new List<Action>(),
+                };
+                callToAdd.Name = GetCallNameDuplicates(callToAdd.GetTitle(), Calls);
+
+                Calls.Add(callToAdd);
+                var newCallJson = JsonConvert.SerializeObject(callToAdd);
+
+                TreeNode newNode = new TreeNode()
+                {
+                    Text = callToAdd.Name,
+                    Value = newCallJson,
+                    ImageUrl = callToAdd.GetImageUrl(),
+                    Selected = true
+                };
+
+               //......
+
+            }
+            catch (Exception exc)
+            {
+                this.Page.ClientScript.RegisterStartupScript(this.Page.GetType(), Message_Eng.DeleteWarningTitle, "alert('messageBox')", true);
+            }
+
+        }
+        
+     ```
+     ```csharp
+     protected void BtnDelete_Click(object sender, EventArgs e)
+        {
+
+            TreeNode selectedTN = callTreeView.SelectedNode;
+            Call selectedCallInList = null;
+            if (selectedTN == null)
+                return;
+
+            if (selectedTN.Depth > 0)
+            {
+                var selectedCallObj = JsonConvert.DeserializeObject<Call>(selectedTN.Parent.Value);
+                selectedCallInList = Calls.First(c => c.Id.Equals(selectedCallObj.Id));
+                if (Helper.TryParseJson(selectedTN.Value, out List<InputParameter> inputParameters))
+                {
+                    selectedCallInList.InputParameters = null;
+                }
+                if (Helper.TryParseJson(selectedTN.Value, out Action action))
+                {
+                    var selectedAction = selectedCallInList.Actions.FirstOrDefault(a => a.Id.Equals(action.Id));
+                    selectedCallInList.Actions.Remove(selectedAction);
+                }
+                if (Helper.TryParseJson(selectedTN.Value, out ServiceHeader serviceHeader))
+                {
+                    selectedCallInList.ServiceHeader = null;
+                }
+                if (Helper.TryParseJson(selectedTN.Value, out AzLogin azLogin))
+                {
+                    selectedCallInList.Azlogin = null;
+                }
+                selectedTN.Parent.Value = JsonConvert.SerializeObject(selectedCallInList);
+                selectedTN.Parent.ChildNodes.Remove(selectedTN);
+
+                callPanel.Update(); 
+            }
+            
+            else
+            {
+                selectedCallInList = JsonConvert.DeserializeObject<Call>(selectedTN.Value);
+                var callInList = Calls.First(c => c.Id.Equals(selectedCallInList.Id));
+                if (callInList != null)
+                {
+                    Calls.Remove(callInList);
+                    callTreeView.Nodes.Remove(selectedTN);
+                }
+            }
+
+            //...
+        }
+
+     ```
+
+   
 
 
 
