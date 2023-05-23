@@ -89,36 +89,23 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
      ```
      ```csharp
      private void clone_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            try
-            {
-                //clone
-                //treenodeToClone
-                TreeNode selectedNode = workSpaceTreeView.SelectedNode;
-
-                if (workSpaceTreeView.SelectedNode.Tag is Call)
+     {
+        TreeNode selectedNode = workSpaceTreeView.SelectedNode;
+            if (workSpaceTreeView.SelectedNode.Tag is Call)
                 {
 
-                    Call selectedCall = (Call)selectedNode.Tag;
+                Call selectedCall = (Call)selectedNode.Tag;
 
-                    Call newCall = new Call()
-                    {
-                        Name = GetNextCopyCallName(selectedCall.Name, this.Calls, "Copy"),
-                        Id = selectedCall.Id,
-                        description = selectedCall.description,
-                        Operation = selectedCall.Operation,
-                        TemplatePath = selectedCall.TemplatePath,
-                        Actions = new List<Action>(),
-                        ServiceUrl = selectedCall.ServiceUrl
-                    };
+                Call newCall = new Call()
+                {      
+                   //....
+                        
+                };
 
                     TreeNode newNode = new TreeNode { Text = newCall.Name, Tag = newCall };
                     Calls.Add(newCall);
                     // add the nodes 
-                    workSpaceTreeView.Nodes.Add(newNode);
-                    workSpaceTreeView.SelectedNode = newNode;
-                    UpdateNodeParams(selectedNode);
-
+                    //.....
                     foreach (TreeNode treeNode in selectedNode.Nodes)
                     {
                         //clone the action of the calls
@@ -153,13 +140,10 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
                 }
                 _madeChanges = true;
                 GrayOut();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(Constants.ItemCloneError + "\n" + exc.Message, Constants.ItemCloneError);
-            }
-
         }
+        
+
+        
      ```
     
      //Web-Form
@@ -187,23 +171,15 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
 
      Call callToAdd = new Call()
         {
-            Id = Guid.NewGuid(),
-            //Operation = new List<string>(),
-            TemplatePath = "",
-            ImagePath = "",
-            Actions = new List<Action>(),
+          //.....
         };
-        callToAdd.Name = GetCallNameDuplicates(callToAdd.GetTitle(), Calls);
-
+      
         Calls.Add(callToAdd);
         var newCallJson = JsonConvert.SerializeObject(callToAdd);
 
         TreeNode newNode = new TreeNode()
         {
-            Text = callToAdd.Name,
-            Value = newCallJson,
-            ImageUrl = callToAdd.GetImageUrl(),
-            Selected = true
+          //......
         };
 
      //......
@@ -250,20 +226,13 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
             else
             {
                 selectedCallInList = JsonConvert.DeserializeObject<Call>(selectedTN.Value);
-                var callInList = Calls.First(c => c.Id.Equals(selectedCallInList.Id));
-                if (callInList != null)
-                {
-                    Calls.Remove(callInList);
-                    callTreeView.Nodes.Remove(selectedTN);
-                }
+              //....
             }
 
             //...
         }
 
      ```
-
-   
 
 ## Vue.js als clientseitiges Framework. (10 Seiten)
 
@@ -312,17 +281,18 @@ Das Komponentenkonzept von Vue.js ermöglicht die Entwicklung von wiederverwendb
 - Style: Der Style-Bereich enthält CSS-Regeln, die spezifisch für die Komponente sind. Hier können Sie das Aussehen der Komponente anpassen, indem Sie Klassen, IDs oder andere Selektoren verwenden.
 Das Komponentenkonzept ermöglicht es, Komponenten hierarchisch zu verschachteln und Daten und Events zwischen den Komponenten zu übertragen. Dies fördert die Wiederverwendbarkeit und Modularität, da Komponenten unabhängig voneinander entwickelt, getestet und wiederverwendet werden können.
 Hier ist ein einfaches Beispiel für eine Vue.js-Komponente:
+
 > **Hinweis:** Der folgende Codeausschnitt zeigt eine einfache Vue.js-Komponente. Das Template definiert eine Überschrift und einen Button, die auf eine Datenvariable und eine Methode der Komponente zugreifen.
-```vue
-<template>
+ ```vue
+ <template>
   <div>
     <h2>{{ message }}</h2>
     <button @click="changeMessage">Klick mich!</button>
   </div>
-</template>
+ </template>
 
-<script>
-export default {
+ <script>
+ export default {
   data() {
     return {
       message: "Hallo Welt!"
@@ -333,17 +303,18 @@ export default {
       this.message = "Neue Nachricht!";
     }
   }
-};
-</script>
+ };
+ </script>
 
-<style scoped>
-h2 {
+ <style scoped>
+ h2 {
   color: blue;
-}
-button {
+ }
+ button {
   background-color: yellow;
-}
-</style>
+ }
+ </style>
+
 ```
 
 ### Einsatz fertiger Komponenten von PrimeVue.
