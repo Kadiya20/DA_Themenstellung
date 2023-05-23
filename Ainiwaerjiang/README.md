@@ -163,6 +163,7 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
      ```
     
      //Web-Form
+     > **Hinweis:** Dieser Codeausschnitt ist eine Methode namens `TryParseJson`, die versucht, einen JSON-String in ein Objekt vom Typ `T` zu parsen. Dabei wird die Newtonsoft.Json-Bibliothek für die Deserialisierung verwendet. Der Code richtet einen Ereignishandler ein, um Fehler während der Deserialisierung zu behandeln, und wirft einen Fehler, wenn im JSON fehlende Member vorhanden sind. Die Methode gibt einen booleschen Wert zurück, der den Erfolg oder Misserfolg des Parsing-Vorgangs anzeigt.
 
      ```csharp
      internal static bool TryParseJson<T>(string input, out T result)
@@ -178,44 +179,38 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
         }
      ```
 
-     ```csharp
-     private void AddCall()
+   > **Hinweis:** Der folgende Codeausschnitt zeigt die Methode `AddCall`, die eine Instanz der Klasse `Call` erstellt und zu `Calls`-Liste hinzufügt. Anschließend wird das Objekt in ein JSON-Format konvertiert.
+
+    ```csharp
+      private void AddCall()
+     {
+
+     Call callToAdd = new Call()
         {
+            Id = Guid.NewGuid(),
+            //Operation = new List<string>(),
+            TemplatePath = "",
+            ImagePath = "",
+            Actions = new List<Action>(),
+        };
+        callToAdd.Name = GetCallNameDuplicates(callToAdd.GetTitle(), Calls);
 
-            try
-            {
-                Call callToAdd = new Call()
-                {
-                    Id = Guid.NewGuid(),
-                    //Operation = new List<string>(),
-                    TemplatePath = "",
-                    ImagePath = "",
-                    Actions = new List<Action>(),
-                };
-                callToAdd.Name = GetCallNameDuplicates(callToAdd.GetTitle(), Calls);
+        Calls.Add(callToAdd);
+        var newCallJson = JsonConvert.SerializeObject(callToAdd);
 
-                Calls.Add(callToAdd);
-                var newCallJson = JsonConvert.SerializeObject(callToAdd);
+        TreeNode newNode = new TreeNode()
+        {
+            Text = callToAdd.Name,
+            Value = newCallJson,
+            ImageUrl = callToAdd.GetImageUrl(),
+            Selected = true
+        };
 
-                TreeNode newNode = new TreeNode()
-                {
-                    Text = callToAdd.Name,
-                    Value = newCallJson,
-                    ImageUrl = callToAdd.GetImageUrl(),
-                    Selected = true
-                };
+     //......
+     }
 
-               //......
-
-            }
-            catch (Exception exc)
-            {
-                this.Page.ClientScript.RegisterStartupScript(this.Page.GetType(), Message_Eng.DeleteWarningTitle, "alert('messageBox')", true);
-            }
-
-        }
-        
      ```
+
      ```csharp
      protected void BtnDelete_Click(object sender, EventArgs e)
         {
@@ -311,7 +306,45 @@ Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzero
 
 ### Komponentenkonzept von Vue.js.
 
-TODO
+Das Komponentenkonzept von Vue.js ermöglicht die Entwicklung von wiederverwendbaren und modularen UI-Komponenten in JavaScript.Komponenten sind eigenständige und isolierte Teile einer Webanwendung, die ihre eigene Logik, Zustand und Darstellung haben können.Mit Vue.js können Sie benutzerdefinierte Komponenten erstellen, indem Sie das `Vue.component()`-Funktion verwenden oder Komponentenobjekte erstellen, die auf der Vue-Komponentenoption basieren. Eine Vue-Komponente besteht aus drei Hauptteilen:
+- Template: Das Template definiert die visuelle Darstellung der Komponente. Es enthält HTML-Code mit Vue-Direktiven, die Daten binden und die Logik der Komponente steuern.
+- Script: Das Script enthält die Logik und den Zustand der Komponente. Hier können Sie Daten definieren, Methoden erstellen, Lebenszyklushooks nutzen und mit externen Ressourcen interagieren.
+- Style: Der Style-Bereich enthält CSS-Regeln, die spezifisch für die Komponente sind. Hier können Sie das Aussehen der Komponente anpassen, indem Sie Klassen, IDs oder andere Selektoren verwenden.
+Das Komponentenkonzept ermöglicht es, Komponenten hierarchisch zu verschachteln und Daten und Events zwischen den Komponenten zu übertragen. Dies fördert die Wiederverwendbarkeit und Modularität, da Komponenten unabhängig voneinander entwickelt, getestet und wiederverwendet werden können.
+Hier ist ein einfaches Beispiel für eine Vue.js-Komponente:
+> **Hinweis:** Der folgende Codeausschnitt zeigt eine einfache Vue.js-Komponente. Das Template definiert eine Überschrift und einen Button, die auf eine Datenvariable und eine Methode der Komponente zugreifen.
+```vue
+<template>
+  <div>
+    <h2>{{ message }}</h2>
+    <button @click="changeMessage">Klick mich!</button>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      message: "Hallo Welt!"
+    };
+  },
+  methods: {
+    changeMessage() {
+      this.message = "Neue Nachricht!";
+    }
+  }
+};
+</script>
+
+<style scoped>
+h2 {
+  color: blue;
+}
+button {
+  background-color: yellow;
+}
+</style>
+```
 
 ### Einsatz fertiger Komponenten von PrimeVue.
 
