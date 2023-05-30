@@ -51,101 +51,51 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
      Beispiel: 
      // ASP.NET
      ```csharp
-             <div class="container-action-area">
-                <nav class="navbar-actions"></nav>
-                <div class="container-service-interface">
-                    <asp:UpdatePanel ID="paramSection" runat="server" UpdateMode="Conditional" EnableViewState="true" ViewStateMode="Enabled">
-                        <ContentTemplate>
-                            <asp:GridView ID="paramGridView" runat="server"
-                                CellPadding="10" GridLines="None"
-                                OnRowDataBound="paramGridView_RowDataBound"
-                                Visible="true" OnSelectedIndexChanged="paramGridView_SelectedIndexChanged"
-                                AutoGenerateSelectButton="true" DataKeyNames="Parameter" CssClass="table table-borderless table-striped" EnableViewState="true" ViewStateMode="Enabled">
-                                <Columns>
-                                </Columns>
-                            </asp:GridView>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                </div>
-
+    <asp:GridView ID="paramGridView" runat="server"
+        CellPadding="10" GridLines="None"
+        OnRowDataBound="paramGridView_RowDataBound"
+        Visible="true" OnSelectedIndexChanged="paramGridView_SelectedIndexChanged"
+        AutoGenerateSelectButton="true" DataKeyNames="Parameter" CssClass="table table-borderless table-striped" EnableViewState="true" ViewStateMode="Enabled">
+        <Columns>
+        </Columns>
+    </asp:GridView>
      ```       
-
 4. Unterschiede in der Verwendung von Tag Properties in ASP.NET
-     Ein weiterer Unterschied zwischen Windows Forms und ASP.NET betraf die Verwendung von Tag-Eigenschaften. In Windows Forms ermöglicht die Tag-Eigenschaft das Zuweisen von zusätzlichen Informationen oder Objekten zu einem Steuerelement. Dies ist besonders nützlich, um das ausgewählte oder bearbeitete Objekt in einem Treeview zu identifizieren.Da ASP.NET Webanwendungen keine direkte Tag-Eigenschaft bieten, mussten wir eine alternative Lösung finden. Wir haben eine Hilfsklasse erstellt und die Informationen über das ausgewählte Objekt in einem JSON gespeichert. Mithilfe eines JsonParsers konnten wir das Objekt in ein JSON umwandeln und speichern. Hier ist ein Indem wir eine Hilfsklasse erstellt und die JSON-Konvertierung verwendet haben, konnten wir die Funktionalität der Tag-Eigenschaft in ASP.NET Webanwendungen replizieren.
+     Ein weiterer Unterschied zwischen Windows Forms und ASP.NET betraf die Verwendung von Tag-Eigenschaften. In Windows Forms ermöglicht die Tag-Eigenschaft das Zuweisen von zusätzlichen Informationen oder Objekten zu einem Steuerelement. Dies ist besonders nützlich, um das ausgewählte oder bearbeitete Objekt in einem Treeview zu identifizieren.
      //Win-Form
      ```csharp
-      private void DataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-
-            if (workSpaceTreeView.SelectedNode.Tag is Action)
-            {
-                ((Action)workSpaceTreeView.Tag).SaveDictionaryToParameters(SaveProperties(DataGridView, ((Action)workSpaceTreeView.SelectedNode.Tag).Name));
-                UpdateNodeParams(workSpaceTreeView.SelectedNode);
-            }
-            if (workSpaceTreeView.SelectedNode.Tag is InputParameters)
-            {
-            }
-        }
+    if (workSpaceTreeView.SelectedNode.Tag is Action)
+    {
+        ((Action)workSpaceTreeView.Tag).SaveDictionaryToParameters(SaveProperties(DataGridView, ((Action)workSpaceTreeView.SelectedNode.Tag).Name));
+        UpdateNodeParams(workSpaceTreeView.SelectedNode);
+    }
+    if (workSpaceTreeView.SelectedNode.Tag is InputParameters)
+    {
+        //....
+    }
+      
      ```
-     ```csharp
-     private void clone_ItemClick(object sender, ItemClickEventArgs e)
-     {
-        TreeNode selectedNode = workSpaceTreeView.SelectedNode;
-            if (workSpaceTreeView.SelectedNode.Tag is Call)
-                {
+     ```csharp    
+    //clone the action of the calls
+    TreeNode newTreeNode = new TreeNode();
+    if (treeNode.Tag is Action)
+    {
+        Action selectedAction = (Action)treeNode.Tag;
+        Action newAction = new Action(selectedAction.Name, selectedAction.Parameters, selectedAction.ImagePath);
 
-                Call selectedCall = (Call)selectedNode.Tag;
-
-                Call newCall = new Call()
-                {      
-                   //....
-                        
-                };
-
-                    TreeNode newNode = new TreeNode { Text = newCall.Name, Tag = newCall };
-                    Calls.Add(newCall);
-                    // add the nodes 
-                    //.....
-                    foreach (TreeNode treeNode in selectedNode.Nodes)
-                    {
-                        //clone the action of the calls
-                        TreeNode newTreeNode = new TreeNode();
-                        if (treeNode.Tag is Action)
-                        {
-                            Action selectedAction = (Action)treeNode.Tag;
-                            Action newAction = new Action(selectedAction.Name, selectedAction.Parameters, selectedAction.ImagePath);
-
-                            newCall.Actions.Add(newAction);
-                            newTreeNode = CreateNewTreeNode(newTreeNode, treeNode, newNode, newAction.Name, newAction);
-                        }
-                        else if (treeNode.Tag is InputParameters)
-                        {
-                            InputParameters selectedInputParameter = (InputParameters)treeNode.Tag;
-                            newCall.InputParams = selectedInputParameter;
-                            newTreeNode = CreateNewTreeNode(newTreeNode, treeNode, newNode, Constants.InputParameters, newCall.InputParams);
-                        }
-                        else if (treeNode.Tag is AzLogin)
-                        {
-                            AzLogin selectedAzLogin = (AzLogin)treeNode.Tag;
-                            newCall.Azlogin = selectedAzLogin;
-                            newTreeNode = CreateNewTreeNode(newTreeNode, treeNode, newNode, Constants.AzureadLogin, newCall.Azlogin);
-                        }
-                        else if (treeNode.Tag is ServiceHeader)
-                        {
-                            ServiceHeader selectedServiceHeader = (ServiceHeader)treeNode.Tag;
-                            newCall.ServiceHeader = selectedServiceHeader;
-                            newTreeNode = CreateNewTreeNode(newTreeNode, treeNode, newNode, Constants.ServiceHeader, newCall.ServiceHeader);
-                        }
-                    }
-                }
-                _madeChanges = true;
-                GrayOut();
-        }
-        
-
+        newCall.Actions.Add(newAction);
+        newTreeNode = CreateNewTreeNode(newTreeNode, treeNode, newNode, newAction.Name, newAction);
+    }
+    else if (treeNode.Tag is InputParameters)
+    {
+        InputParameters selectedInputParameter = (InputParameters)treeNode.Tag;
+        newCall.InputParams = selectedInputParameter;
+        newTreeNode = CreateNewTreeNode(newTreeNode, treeNode, newNode, Constants.InputParameters, newCall.InputParams);
+    }
+    else if //.....//
         
      ```
-    
+     Da ASP.NET Webanwendungen keine direkte Tag-Eigenschaft bieten, mussten wir eine alternative Lösung finden. Wir haben eine Hilfsklasse erstellt und die Informationen über das ausgewählte Objekt in einem JSON gespeichert. Mithilfe eines JsonParsers konnten wir das Objekt in ein JSON umwandeln und speichern. Hier ist ein Indem wir eine Hilfsklasse erstellt und die JSON-Konvertierung verwendet haben, konnten wir die Funktionalität der Tag-Eigenschaft in ASP.NET Webanwendungen replizieren.   
      //Web-Form
      > **Hinweis:** Dieser Codeausschnitt ist eine Methode namens `TryParseJson`, die versucht, einen JSON-String in ein Objekt vom Typ `T` zu parsen. Dabei wird die Newtonsoft.Json-Bibliothek für die Deserialisierung verwendet. Der Code richtet einen Ereignishandler ein, um Fehler während der Deserialisierung zu behandeln, und wirft einen Fehler, wenn im JSON fehlende Member vorhanden sind. Die Methode gibt einen booleschen Wert zurück, der den Erfolg oder Misserfolg des Parsing-Vorgangs anzeigt.
 
@@ -168,70 +118,20 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
     ```csharp
       private void AddCall()
      {
-
-     Call callToAdd = new Call()
-        {
-          //.....
-        };
-      
+        Call callToAdd = new Call();
         Calls.Add(callToAdd);
         var newCallJson = JsonConvert.SerializeObject(callToAdd);
-
-        TreeNode newNode = new TreeNode()
-        {
-          //......
-        };
-
-     //......
      }
-
      ```
-
      ```csharp
-     protected void BtnDelete_Click(object sender, EventArgs e)
-        {
-
-            TreeNode selectedTN = callTreeView.SelectedNode;
-            Call selectedCallInList = null;
-            if (selectedTN == null)
-                return;
-
-            if (selectedTN.Depth > 0)
-            {
-                var selectedCallObj = JsonConvert.DeserializeObject<Call>(selectedTN.Parent.Value);
-                selectedCallInList = Calls.First(c => c.Id.Equals(selectedCallObj.Id));
-                if (Helper.TryParseJson(selectedTN.Value, out List<InputParameter> inputParameters))
-                {
-                    selectedCallInList.InputParameters = null;
-                }
-                if (Helper.TryParseJson(selectedTN.Value, out Action action))
-                {
-                    var selectedAction = selectedCallInList.Actions.FirstOrDefault(a => a.Id.Equals(action.Id));
-                    selectedCallInList.Actions.Remove(selectedAction);
-                }
-                if (Helper.TryParseJson(selectedTN.Value, out ServiceHeader serviceHeader))
-                {
-                    selectedCallInList.ServiceHeader = null;
-                }
-                if (Helper.TryParseJson(selectedTN.Value, out AzLogin azLogin))
-                {
-                    selectedCallInList.Azlogin = null;
-                }
-                selectedTN.Parent.Value = JsonConvert.SerializeObject(selectedCallInList);
-                selectedTN.Parent.ChildNodes.Remove(selectedTN);
-
-                callPanel.Update(); 
-            }
-            
-            else
-            {
-                selectedCallInList = JsonConvert.DeserializeObject<Call>(selectedTN.Value);
-              //....
-            }
-
-            //...
-        }
-
+    if (Helper.TryParseJson(selectedTN.Value, out List<InputParameter> inputParameters))
+    {
+        selectedCallInList.InputParameters = //...;
+    }
+    if (Helper.TryParseJson(selectedTN.Value, out Action action))
+    {
+        var selectedAction = selectedCallInList.Actions.FirstOrDefault(a => a.Id.Equals(action.Id));
+    } //...
      ```
 
 ## Vue.js als clientseitiges Framework. (10 Seiten)
@@ -283,7 +183,7 @@ Das Komponentenkonzept ermöglicht es, Komponenten hierarchisch zu verschachteln
 Hier ist ein einfaches Beispiel für eine Vue.js-Komponente:
 
 > **Hinweis:** Der folgende Codeausschnitt zeigt eine einfache Vue.js-Komponente. Das Template definiert eine Überschrift und einen Button, die auf eine Datenvariable und eine Methode der Komponente zugreifen.
- ```vue
+ ```javascript
  <template>
   <div>
     <h2>{{ message }}</h2>
