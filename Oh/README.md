@@ -79,7 +79,7 @@ Quelle: https://chat.openai.com/?model=gpt-4, abgerufen am 26.5.2023
 **[STAThread]-Annotation**
 Die [STAThread]-Annotation in Windows Forms Anwendungen wird verwendet, um anzugeben, dass das COM-Threading-Modell der Anwendung ein Single-Threaded Apartment (STA) ist.<sup>[2]</sup> Diese Anweisung muss am Einstiegspunkt jeder Windows Forms-Anwendung vorhanden sein. Die Anweisung wird tatsächlich von der .NET-Laufzeit beim Starten der Anwendung gelesen, um zu entscheiden, wie die COM-Threading-Umgebung initialisiert werden soll.
 
-[2]: http://learn.microsoft.com/en-us/dotnet/api/, abgerufen am 26.5.2023
+[2]: https://chat.openai.com/?model=gpt-4, abgerufen am 26.5.2023
 
 ### GUI Elemente in Windows Forms.
 
