@@ -176,7 +176,7 @@ Mit doppelten Anführungszeichen:
  ```javascript
  <element event="einige JavaScript">
  ```
-Im folgenden Beispiel wird einem <button>-Element ein onclick-Attribut (mit Code) hinzugefügt:
+Im folgenden Beispiel wird einem Element ein onclick-Attribut (mit Code) hinzugefügt:
  ```javascript
  <button onclick="document.getElementById('demo').innerHTML = Date()">Wie spät ist es?</button>
  ``` 
@@ -293,13 +293,128 @@ Hier ist ein Beispiel für die Verwendung des PrimeVue Button-Komponenten:
 PrimeVue bietet zahlreiche anpassbare Optionen für jede Komponente, sodass wir das Erscheinungsbild und Verhalten nach unseren Bedürfnissen anpassen können.
 
 Der Einsatz von fertigen Komponentenbibliotheken wie PrimeVue ermöglicht es uns, auf bewährte Lösungen zurückzugreifen, Zeit bei der Entwicklung zu sparen und eine konsistente und ansprechende Benutzeroberfläche zu erstellen.
+
+## Verwendung der PrimeVue Tree-Komponente
+
+In unserem spezifischen Projekt konzentrieren wir uns hauptsächlich auf die Tree-Komponente von PrimeVue. Die Tree-Komponente ist besonders nützlich, wenn wir hierarchische Daten in einer strukturierten Weise anzeigen möchten, ähnlich wie wir es in ASP.NET getan haben. Diese Komponente bietet eine Vielzahl von Funktionen, darunter das Ein- und Ausklappen von Zweigen, die Auswahl von Knoten, Drag-and-Drop-Interaktionen und vieles mehr.
+
+Die PrimeVue Tree-Komponente ermöglicht es uns, eine verschachtelte Baumstruktur zu erstellen, indem wir ein Array von Knotenobjekten bereitstellen. Jeder Knoten in diesem Array repräsentiert einen Zweig im Baum und kann weitere Knotenobjekte als Kinder enthalten.
+
+### Beispiel für die Verwendung der PrimeVue Tree-Komponente
+
+Gehen wir durch ein einfaches Beispiel, wie wir die PrimeVue Tree-Komponente in unserer Vue.js-Anwendung verwenden können:
+
+1. Zuerst installieren wir die PrimeVue-Komponente und importieren die erforderlichen PrimeVue-Komponenten:
+  ```shell
+      npm install primevue@3.0.0 primeicons --save
+  ```
+2. Dann importieren wir die Tree-Komponente in unserer Vue-Komponente:
+  ```javascript
+     <script setup>
+      import Tree from 'primevue/tree';
+  ```
+3. Wir registrieren die importierten Komponenten in der components-Option unserer Vue-Komponente:
+  ```javascript
+   export default {  
+    components: { CallViewButtons, Tree, URLComponent }
+  ```
+4. Nun können wir die Tree-Komponente in unserem Template verwenden. Hier ist ein einfaches Beispiel, wie wir eine Baumstruktur mit Zweigen erstellen können:
+  ```javascript
+   <Tree selectionMode="single":value="treeNodes"v-on:node-select="onNodeSelect"v-model:expanded-keys="expandedKeys"@toggle="onToggle"></Tree>
+   ```
    
+5. Anstatt die Baumknoten direkt in unseren Daten zu definieren, haben wir eine Methode `getCalls()` in "Callservice" implementiert, die einen dynamischen Baum aus unseren Anrufdaten erstellt:
+
+```javascript
+ getCalls() {....
+  return this.calls.map(c => { 
+    const children = [
+      { callName: c.name, label: "Name: " + c.name },
+      ....,
+    ];
+    if (c.inputParameters !== undefined) {
+      children.push({ callName: c.name, label: "Input Parameters", component: "inputParameter" ,data: {
+        inputParameters: c.inputParameters
+      }});
+    }
+    if (c.azLogin !== undefined) {
+      c.... })
+    }
+    return { key: ++counter, callName: c.name, label: c.name, data: c, children}; 
+   });
+ }
+```
+> **Hinweis:** In dieser Methode iterieren wir über unsere calls Daten und erzeugen für jeden Anruf ein Knotenobjekt. Jedes Knotenobjekt hat eine eindeutige key, den callName, das label, die data und ein children Array.
+Die children enthalten spezifische Informationen über den Anruf wie den Namen, die Operation, den Pfad des Templates und optional die Eingabeparameter, Azure AD Login, Service Header Login und die Aktionen des Anrufs.
+Falls das actions Feld definiert ist, werden für jede Aktion und ihre Parameter weitere Kind knoten erstellt.
+Die erstellten Baumknoten repräsentieren dann die Struktur und den Inhalt unseres Baums, die wir dann an die PrimeVue Tree-Komponente übergeben.
+
+
 
 ## Services in der clientseitigen Applikation (5 Seiten)
 
 ### Datenstruktur zum Speichern der Call Objekte.
 
-TODOd
+Services in clientseitigen Applikationen, insbesondere in Vue.js, spielen eine entscheidende Rolle, um die Wartbarkeit und Lesbarkeit der Anwendung zu verbessern. Services ermöglichen es uns, unseren Code zu organisieren, indem sie bestimmte Funktionen oder Features kapseln, die über verschiedene Komponenten der Anwendung hinweg genutzt werden können.
+
+Ein gutes Beispiel für die Anwendung von Services in Vue.js ist die Verwaltung von API-Aufrufen oder die Kapselung von Geschäftslogik, die mehrmals in der Anwendung wiederverwendet wird. In unserem Fall haben wir einen `CallService` erstellt, um Anrufe und deren zugehörige Daten zu verwalten.
+
+## CallService Klasse
+
+Die `CallService` Klasse dient als zentrale Stelle zur Verwaltung unserer Call-Objekte. In dieser Klasse definieren wir Methoden zum Hinzufügen, Löschen, Klonen und Abrufen von Anrufen.
+
+```javascript
+class CallService {
+  constructor() {
+    this.calls = [];
+    this.counter = 0;
+  }
+  ...
+}
+export default new CallService();
+```
+### Konstruktor
+Im Konstruktor initialisieren wir die `calls`-Eigenschaft als leeres Array, das zur Speicherung unserer Call-Objekte dient, und `counter`, das zur Generierung eindeutiger Namen für neue Anrufe verwendet wird.
+
+### addCall()
+Die Methode `addCall()` erstellt einen neuen Anruf mit einem eindeutigen Namen und fügt ihn dem `calls`-Array hinzu.
+
+### deleteCall(call)
+Die `deleteCall()`-Methode entfernt einen Anruf aus dem `calls`-Array. Dies geschieht, indem ein neues Array zurückgegeben wird, das alle Anrufe außer dem zu löschenden Anruf enthält.
+
+### cloneCall(call)
+Die `cloneCall()`-Methode erstellt eine Kopie eines vorhandenen Anrufs und fügt die Kopie dem `calls`-Array hinzu.
+
+### addInputParameter(call), addAzureAD(call), addServiceHeaderLogin(call)
+Diese Methoden fügen zusätzliche Informationen zu einem spezifischen Anruf hinzu. Dazu gehört das Hinzufügen von Eingabeparametern (`addInputParameter()`), Azure AD Login Informationen (`addAzureAD()`) und Service Header Login Informationen (`addServiceHeaderLogin()`).
+
+### delete(call, objectType)
+Die `delete()` Methode ermöglicht es uns, spezifische Teile eines Anrufs zu entfernen, wie zum Beispiel Eingabeparameter, Azure AD Login oder Service Header Login.
+
+### getCalls()
+Die `getCalls()`-Methode gibt eine formatierte Version unserer Anrufe zurück, die wir zur Anzeige in unserer Baumstruktur verwenden.
+
+### getCallData(callName)
+Die `getCallData()` Methode ermöglicht es uns, die Daten eines bestimmten Anrufs abzurufen.
+
+Die `CallService` Klasse hilft uns, unseren Code zu organisieren und wiederverwendbar zu machen. Sie erleichtert das Testen, da wir nur die Serviceklasse testen müssen, um sicherzustellen, dass unsere Geschäftslogik korrekt funktioniert. Darüber hinaus erleichtert sie auch das Debugging und die Wartung unserer Anwendung.
+
+### Einbindung des CallService in der Vue-Komponente
+
+Nachdem wir den `CallService` definiert haben, können wir ihn in unseren Views/CallsView verwenden. Dafür importieren wir ihn einfach. 
+```javascript
+ import CallService from "../services/CallService.js";
+```
+Durch diesen Import haben wir Zugang zu allen Methoden und Eigenschaften des CallService. Wir können jetzt innerhalb unserer Vue-Komponente auf die Methoden zum Hinzufügen, Löschen, Klonen und Abrufen von Anrufen zugreifen.
+
+Zum Beispiel könnten wir einen neuen Anruf erstellen, indem wir CallService.addCall() aufrufen. Oder wir könnten alle vorhandenen Anrufe abrufen, indem wir CallService.getCalls() verwenden.
+```javascript
+ this.treeNodes = CallService.getCalls();
+```
+
+Die Anwendung des Service-Konzepts in Vue.js kann einen signifikanten Unterschied in Bezug auf die Code-Organisation und -Wartbarkeit machen. Es erlaubt uns, Code-Teile zu isolieren, die spezifische Aufgaben ausführen, und diese dann über unsere Anwendung hinweg zu verwenden, wodurch die Komplexität reduziert und die Wiederverwendbarkeit erhöht wird.
+
+
 
 ### Dynamische Generierung des Layout auf Basis von JSON Daten.
 
