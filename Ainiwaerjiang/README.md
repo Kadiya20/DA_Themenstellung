@@ -153,6 +153,48 @@ Insgesamt bietet uns Vue.js die notwendige Flexibilität, um unsere Webanwendung
 
 ### Eventhandling in einer JavaScript Applikation.
 
+- **JavaScript-Events:**<sup>[1]</sup>
+HTML-Events sind "things", die mit HTML-Elementen geschehen.
+Wenn JavaScript in HTML-Seiten verwendet wird, kann JavaScript auf diese Ereignisse "react".
+
+- **HTML-Events:**
+Ein HTML-Event kann etwas sein, das der Browser tut, oder etwas, das ein Benutzer tut.
+
+> **Hinweis:** Hier sind einige Beispiele für HTML-Events:
+
+- Eine HTML-Webseite hat das Laden abgeschlossen
+- Ein HTML-Eingabefeld wurde geändert
+- Ein HTML-Button wurde angeklickt, Oftmals möchten Sie etwas tun, wenn Ereignisse eintreten.
+
+HTML erlaubt das Hinzufügen von Event-Handler-Attributen, mit JavaScript-Code, zu HTML-Elementen.
+
+Mit einfachen Anführungszeichen:
+ ```javascript
+  <element event='einige JavaScript'>
+ ```
+Mit doppelten Anführungszeichen:
+ ```javascript
+ <element event="einige JavaScript">
+ ```
+Im folgenden Beispiel wird einem <button>-Element ein onclick-Attribut (mit Code) hinzugefügt:
+ ```javascript
+ <button onclick="document.getElementById('demo').innerHTML = Date()">Wie spät ist es?</button>
+ ``` 
+Im obigen Beispiel ändert der JavaScript-Code den Inhalt des Elements mit der ID="demo".
+
+Im nächsten Beispiel ändert der Code den Inhalt seines eigenen Elements (unter Verwendung von this.innerHTML): 
+ ```javascript
+ <button onclick="this.innerHTML = Date()">Wie spät ist es?</button>
+ ``` 
+JavaScript-Code ist oft mehrere Zeilen lang. Es ist häufiger zu sehen, dass Event-Attribute Funktionen aufrufen:
+ ```javascript
+ <button onclick="displayDate()">Wie spät ist es?</button>
+ ``` 
+
+[1]:https://www.w3schools.com/js/js_events.asp
+
+
+
 #### Unterschiede zwischen ASP.NET und Vue.js in Bezug auf die Eventhandlung
 
 ## ASP.NET
@@ -250,7 +292,7 @@ Hier ist ein Beispiel für die Verwendung des PrimeVue Button-Komponenten:
 
 PrimeVue bietet zahlreiche anpassbare Optionen für jede Komponente, sodass wir das Erscheinungsbild und Verhalten nach unseren Bedürfnissen anpassen können.
 
-Der Einsatz von fertigen Komponentenbibliotheken wie PrimeVue ermöglicht es Ihnen, auf bewährte Lösungen zurückzugreifen, Zeit bei der Entwicklung zu sparen und eine konsistente und ansprechende Benutzeroberfläche zu erstellen.
+Der Einsatz von fertigen Komponentenbibliotheken wie PrimeVue ermöglicht es uns, auf bewährte Lösungen zurückzugreifen, Zeit bei der Entwicklung zu sparen und eine konsistente und ansprechende Benutzeroberfläche zu erstellen.
    
 
 ## Services in der clientseitigen Applikation (5 Seiten)
