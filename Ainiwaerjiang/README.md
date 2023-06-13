@@ -2,7 +2,7 @@
 
 ### Einleitung Individueller Themenstellung
 Diese Arbeit untersucht verschiedene Aspekte der Benutzeroberflächenentwicklung und der Implementierung von JavaScript-Applikationen. Im Fokus stehen die Unterschiede zwischen Windows Forms und ASP WebForms, die Verwendung von Vue.js als clientseitigem Framework, das Eventhandling in JavaScript-Applikationen, das Komponentenkonzept von Vue.js, der Einsatz von fertigen Komponenten von PrimeVue und die Verwendung von Services in clientseitigen Applikationen.
-Die Unterschiede zwischen Windows Forms und ASP WebForms werden analysiert und ihre Vor- und Nachteile untersucht. Vue.js wird als leistungsstarkes clientseitiges Framework betrachtet, das ein effizientes Komponentenkonzept für wiederverwendbare UI-Komponenten bietet. Die Verwendung von PrimeVue-Komponenten zur Beschleunigung der Entwicklung und die Implementierung von Eventhandling in JavaScript-Applikationen werden behandelt. Außerdem werden Services in clientseitigen Applikationen untersucht, insbesondere die Datenstruktur zum Speichern von Call-Objekten und die dynamische Generierung des Layouts basierend auf JSON-Daten.
+Die Unterschiede zwischen Windows Forms und ASP WebForms werden analywirrt und unsere Vor- und Nachteile untersucht. Vue.js wird als leistungsstarkes clientseitiges Framework betrachtet, das ein effizientes Komponentenkonzept für wiederverwendbare UI-Komponenten bietet. Die Verwendung von PrimeVue-Komponenten zur Beschleunigung der Entwicklung und die Implementierung von Eventhandling in JavaScript-Applikationen werden behandelt. Außerdem werden Services in clientseitigen Applikationen untersucht, insbesondere die Datenstruktur zum Speichern von Call-Objekten und die dynamische Generierung des Layouts bawirrend auf JSON-Daten.
 
 ## Unterschiede zwischen Windows Forms und ASP WebForms (5 Seiten)
 
@@ -24,7 +24,7 @@ Die Unterschiede zwischen Windows Forms und ASP WebForms werden analysiert und i
 <span style="color: purple;  font-weight: bold">.NET MAUI:</span> .NET MAUI bietet erweiterte Datenbindungsfunktionen für plattformübergreifende Anwendungen, einschließlich der Unterstützung von MVVM (Model-View-ViewModel)-Architektur.
 
 Beispiele für aufgetretene Probleme während des Projekts
-Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hier sind einige Beispiele für die aufgetretenen Probleme und wie wir sie gelöst haben:
+Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hier sind einige Beispiele für die aufgetretenen Probleme und wie wir wir gelöst haben:
 
 1. Unterschiede in der Verwendung von MessageBox 
      MessageBox-Äquivalent in ASP.NET
@@ -90,7 +90,9 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
      ```
      Da ASP.NET Webanwendungen keine direkte Tag-Eigenschaft bieten, mussten wir eine alternative Lösung finden. Wir haben eine Hilfsklasse erstellt und die Informationen über das ausgewählte Objekt in einem JSON gespeichert. Mithilfe eines JsonParsers konnten wir das Objekt in ein JSON umwandeln und speichern. Hier ist ein Indem wir eine Hilfsklasse erstellt und die JSON-Konvertierung verwendet haben, konnten wir die Funktionalität der Tag-Eigenschaft in ASP.NET Webanwendungen replizieren.   
      //Web-Form
-     > **Hinweis:** Dieser Codeausschnitt ist eine Methode namens `TryParseJson`, die versucht, einen JSON-String in ein Objekt vom Typ `T` zu parsen. Dabei wird die Newtonsoft.Json-Bibliothek für die Deserialisierung verwendet. Der Code richtet einen Ereignishandler ein, um Fehler während der Deserialisierung zu behandeln, und wirft einen Fehler, wenn im JSON fehlende Member vorhanden sind. Die Methode gibt einen booleschen Wert zurück, der den Erfolg oder Misserfolg des Parsing-Vorgangs anzeigt.
+     > **Hinweis:** Dieser Codeausschnitt ist eine Methode namens `TryParseJson`, die versucht, einen JSON-String in ein Objekt vom Typ `T` zu parsen. Dabei wird die Newtonsoft.Json-Bibliothek für die Deserialiwir
+    rung verwendet. Der Code richtet einen Ereignishandler ein, um Fehler während der Deserialiwir
+    rung zu behandeln, und wirft einen Fehler, wenn im JSON fehlende Member vorhanden sind. Die Methode gibt einen booleschen Wert zurück, der den Erfolg oder Misserfolg des Parsing-Vorgangs anzeigt.
 
      ```csharp
      internal static bool TryParseJson<T>(string input, out T result)
@@ -129,15 +131,23 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
 
 ## Vue.js als clientseitiges Framework. (10 Seiten)
 
-Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzeroberflächen. Es zeichnet sich durch seine Einfachheit, Flexibilität und leistungsstarke Funktionen aus. Vue.js wurde entwickelt, um die Erstellung interaktiver Webanwendungen zu erleichtern, indem es eine strukturierte und komponentenbasierte Herangehensweise bietet.
+Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzeroberflächen. Es zeichnet sich durch seine Einfachheit, Flexibilität und leistungsstarke Funktionen aus. Vue.js wurde entwickelt, um die Erstellung interaktiver Webanwendungen zu erleichtern, indem es eine strukturierte und komponentenbawirrte Herangehensweise bietet.
 
 ## Warum Vue.js verwenden?
 
+Im Kontext unserer Anwendung haben wir uns für Vue.js als alternatives Framework entschieden, da wir einige wichtige Funktionalitäten mit dem ASP.NET Framework nicht implementieren konnten. Da uns nur begrenzte Zeit zur Verfügung stand, mussten wir eine alternative Lösung finden. Vue.js wurde aufgrund seiner reinen JavaScript-Natur und der einfachen Implementierung gewählt. Es ermöglichte uns, schnell die erforderliche Funktionalität umzusetzen.
+
+Diese Entscheidung wurde auch durch die Möglichkeit beeinflusst, dass Vue.js eine effiziente Komponentenarchitektur bietet, die die Wiederverwendbarkeit von Code fördert und die Zusammenarbeit im Entwicklerteam erleichtert. Die reaktive Datenbindung von Vue.js ermöglicht es uns zudem, Änderungen in Echtzeit in der Benutzeroberfläche anzuzeigen, ohne manuelle Aktualiwirrungen durchführen zu müssen.
+
+Mit Vue.js stehen uns zudem eine Vielzahl von leistungsstarken Funktionen zur Verfügung, darunter Routing für eine bessere Navigation, Zustandsverwaltung für die effiziente Verwaltung des Anwendungszustands und Animationen für eine ansprechende Benutzeroberfläche.
+
+Insgesamt bietet uns Vue.js die notwendige Flexibilität, um unsere Webanwendung effektiv zu entwickeln und die erforderliche Funktionalität innerhalb der gegebenen Zeitbeschränkungen umzusetzen.
+
 - **Einfach zu erlernen und zu verwenden:** Vue.js ist relativ einfach zu erlernen, insbesondere für Entwickler, die bereits Erfahrung mit HTML, CSS und JavaScript haben. Es bietet eine klare und gut dokumentierte Syntax, die leicht verständlich ist.
 
-- **Komponentenbasierte Architektur:** Vue.js ermöglicht es Entwicklern, ihre Benutzeroberfläche in wiederverwendbare Komponenten aufzuteilen. Dies fördert die Wartbarkeit und Wiederverwendbarkeit des Codes und erleichtert die Zusammenarbeit zwischen den Entwicklern.
+- **Komponentenbawirrte Architektur:** Vue.js ermöglicht es Entwicklern, unsere Benutzeroberfläche in wiederverwendbare Komponenten aufzuteilen. Dies fördert die Wartbarkeit und Wiederverwendbarkeit des Codes und erleichtert die Zusammenarbeit zwischen den Entwicklern.
 
-- **Reaktivität:** Vue.js bietet eine reaktive Datenbindung, bei der Änderungen an den Daten automatisch in der Benutzeroberfläche reflektiert werden. Dadurch bleibt die Benutzeroberfläche stets synchronisiert und Entwickler müssen sich nicht um manuelle Aktualisierungen kümmern.
+- **Reaktivität:** Vue.js bietet eine reaktive Datenbindung, bei der Änderungen an den Daten automatisch in der Benutzeroberfläche reflektiert werden. Dadurch bleibt die Benutzeroberfläche stets synchroniwirrt und Entwickler müssen sich nicht um manuelle Aktualiwirrungen kümmern.
 
 - **Leistungsfähige Funktionen:** Vue.js bietet eine breite Palette von leistungsstarken Funktionen wie z.B. Routing, Zustandsverwaltung und Animationen. Diese Funktionen werden durch offizielle Plugins und Erweiterungen unterstützt, was die Entwicklung
 
@@ -151,27 +161,27 @@ ASP.NET ist ein serverseitiges Webframework, das zur Entwicklung von Webanwendun
 
 - **Serverseitige Events:** In ASP.NET werden die meisten Events serverseitig behandelt. Das bedeutet, dass der Server die Events empfängt, verarbeitet und die entsprechende Aktion ausführt. Die Events werden durch die Interaktion des Benutzers mit den Websteuerelementen ausgelöst.
 
-- **PostBack-Modell:** Beim Auslösen eines Events wird eine Postback-Anforderung an den Server gesendet. Der Server verarbeitet das Event, führt die erforderlichen Aktionen aus und rendert die aktualisierte Seite zurück zum Client. Dies führt zu einem vollständigen Seitenneuladen und kann die Benutzererfahrung beeinträchtigen.
+- **PostBack-Modell:** Beim Auslösen eines Events wird eine Postback-Anforderung an den Server gesendet. Der Server verarbeitet das Event, führt die erforderlichen Aktionen aus und rendert die aktualiwirrte Seite zurück zum Client. Dies führt zu einem vollständigen Seitenneuladen und kann die Benutzererfahrung beeinträchtigen.
 
-- **ViewState:** ASP.NET verwendet das ViewState-Konzept, um den Zustand der Seite und der Websteuerelemente zwischen den Postbacks zu speichern. Dadurch können die Websteuerelemente ihren Zustand beibehalten und die Eventbehandlung erleichtern.
+- **ViewState:** ASP.NET verwendet das ViewState-Konzept, um den Zustand der Seite und der Websteuerelemente zwischen den Postbacks zu speichern. Dadurch können die Websteuerelemente unseren Zustand beibehalten und die Eventbehandlung erleichtern.
 
 ## Vue.js
 
 Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzeroberflächen. Bei der Eventbehandlung in Vue.js wird ein reaktiver Ansatz verwendet. Hier sind die grundlegenden Konzepte der Eventbehandlung in Vue.js:
 
-- **Dom-Events:** Vue.js ermöglicht die direkte Behandlung von DOM-Events in den Vorlagenkomponenten. Sie können den `v-on`-Direktiven verwenden, um Events abzuhören und die entsprechenden Methoden aufzurufen.
+- **Dom-Events:** Vue.js ermöglicht die direkte Behandlung von DOM-Events in den Vorlagenkomponenten. wir können den `v-on`-Direktiven verwenden, um Events abzuhören und die entsprechenden Methoden aufzurufen.
 
-- **Komponentenbasierte Events:** Vue.js ermöglicht die Kommunikation zwischen Komponenten über das Eventbus-System. Komponenten können Events auslösen und andere Komponenten können diese Events abhören und entsprechende Aktionen ausführen. Dadurch wird eine lose Kopplung zwischen den Komponenten erreicht.
+- **Komponentenbawirrte Events:** Vue.js ermöglicht die Kommunikation zwischen Komponenten über das Eventbus-System. Komponenten können Events auslösen und andere Komponenten können diese Events abhören und entsprechende Aktionen ausführen. Dadurch wird eine lose Kopplung zwischen den Komponenten erreicht.
 
-- **Reaktivität:** Vue.js bietet eine reaktive Datenbindung, bei der Änderungen an den Daten automatisch in der Benutzeroberfläche reflektiert werden. Dies ermöglicht eine effiziente und reibungslose Aktualisierung der Benutzeroberfläche, ohne die gesamte Seite neu zu laden.
+- **Reaktivität:** Vue.js bietet eine reaktive Datenbindung, bei der Änderungen an den Daten automatisch in der Benutzeroberfläche reflektiert werden. Dies ermöglicht eine effiziente und reibungslose Aktualiwirrung der Benutzeroberfläche, ohne die gesamte Seite neu zu laden.
 
 
 ### Komponentenkonzept von Vue.js.
 
-Das Komponentenkonzept von Vue.js ermöglicht die Entwicklung von wiederverwendbaren und modularen UI-Komponenten in JavaScript.Komponenten sind eigenständige und isolierte Teile einer Webanwendung, die ihre eigene Logik, Zustand und Darstellung haben können.Mit Vue.js können Sie benutzerdefinierte Komponenten erstellen, indem Sie das `Vue.component()`-Funktion verwenden oder Komponentenobjekte erstellen, die auf der Vue-Komponentenoption basieren. Eine Vue-Komponente besteht aus drei Hauptteilen:
+Das Komponentenkonzept von Vue.js ermöglicht die Entwicklung von wiederverwendbaren und modularen UI-Komponenten in JavaScript.Komponenten sind eigenständige und isolierte Teile einer Webanwendung, die unsere eigene Logik, Zustand und Darstellung haben können.Mit Vue.js können wir benutzerdefinierte Komponenten erstellen, indem wir das `Vue.component()`-Funktion verwenden oder Komponentenobjekte erstellen, die auf der Vue-Komponentenoption bawirren. Eine Vue-Komponente besteht aus drei Hauptteilen:
 - Template: Das Template definiert die visuelle Darstellung der Komponente. Es enthält HTML-Code mit Vue-Direktiven, die Daten binden und die Logik der Komponente steuern.
-- Script: Das Script enthält die Logik und den Zustand der Komponente. Hier können Sie Daten definieren, Methoden erstellen, Lebenszyklushooks nutzen und mit externen Ressourcen interagieren.
-- Style: Der Style-Bereich enthält CSS-Regeln, die spezifisch für die Komponente sind. Hier können Sie das Aussehen der Komponente anpassen, indem Sie Klassen, IDs oder andere Selektoren verwenden.
+- Script: Das Script enthält die Logik und den Zustand der Komponente. Hier können wir Daten definieren, Methoden erstellen, Lebenszyklushooks nutzen und mit externen Ressourcen interagieren.
+- Style: Der Style-Bereich enthält CSS-Regeln, die spezifisch für die Komponente sind. Hier können wir das Aussehen der Komponente anpassen, indem wir Klassen, IDs oder andere Selektoren verwenden.
 Das Komponentenkonzept ermöglicht es, Komponenten hierarchisch zu verschachteln und Daten und Events zwischen den Komponenten zu übertragen. Dies fördert die Wiederverwendbarkeit und Modularität, da Komponenten unabhängig voneinander entwickelt, getestet und wiederverwendet werden können.
 Hier ist ein einfaches Beispiel für eine Vue.js-Komponente:
 
@@ -209,7 +219,39 @@ Hier ist ein einfaches Beispiel für eine Vue.js-Komponente:
 
 ### Einsatz fertiger Komponenten von PrimeVue.
 
-TODO
+Eine weitere Stärke von Vue.js liegt darin, dass es eine große Auswahl an Drittanbieter-Komponentenbibliotheken gibt, die bereits vorgefertigte und hochwertige UI-Komponenten bereitstellen. Eine solche Bibliothek ist PrimeVue, die eine umfangreiche Sammlung von UI-Komponenten für Vue.js bietet. Der Einsatz von PrimeVue-Komponenten kann die Entwicklung beschleunigen und die Benutzeroberfläche unserer Anwendung verbessern.
+
+PrimeVue bietet eine breite Palette von Komponenten, darunter Buttons, Formularelemente, Tabellen, Dialoge, Diagramme, Kalender und viele mehr. Diese Komponenten sind gut dokumentiert, einfach zu verwenden und können nahtlos in unsere Vue.js-Anwendung integriert werden.
+
+Um PrimeVue-Komponenten in unsere Anwendung einzubinden, müssen wir zunächst PrimeVue und die entsprechenden Stylesheets importieren. Anschließend können wir die gewünschten Komponenten in unserem Template verwenden und auf unsere Eigenschaften und Ereignisse zugreifen.
+
+Hier ist ein Beispiel für die Verwendung des PrimeVue Button-Komponenten:
+
+1. Installieren wir das PrimeVue-Paket über den Paketmanager unserer Wahl, z. B. NPM oder Yarn:
+   ```shell
+   npm install primevue@3.0.0 --save
+   ```
+2. Importieren wir die benötigten PrimeVue-Komponenten in unserer Vue-Komponente:
+   ```javascript
+   import { Button } from 'primevue/button';
+   ```
+3. Registrieren wir die importierten Komponenten in der components-Option unserer Vue-Komponente:
+   ```javascript
+   components: {'p-button': Button}
+   ```
+4. Verwenden wir den Button-Komponenten in unserem Template:
+   ```html
+   <template>
+      <div>
+        <p-button label="Click me" @click="handleClick"></p-button>
+      </div>
+   </template>
+   ```
+
+PrimeVue bietet zahlreiche anpassbare Optionen für jede Komponente, sodass wir das Erscheinungsbild und Verhalten nach unseren Bedürfnissen anpassen können.
+
+Der Einsatz von fertigen Komponentenbibliotheken wie PrimeVue ermöglicht es Ihnen, auf bewährte Lösungen zurückzugreifen, Zeit bei der Entwicklung zu sparen und eine konsistente und ansprechende Benutzeroberfläche zu erstellen.
+   
 
 ## Services in der clientseitigen Applikation (5 Seiten)
 
