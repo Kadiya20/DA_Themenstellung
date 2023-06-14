@@ -1,8 +1,27 @@
 # Individuelle Themenstellung
 
-### Einleitung Individueller Themenstellung
-Diese Arbeit untersucht verschiedene Aspekte der Benutzeroberflächenentwicklung und der Implementierung von JavaScript-Applikationen. Im Fokus stehen die Unterschiede zwischen Windows Forms und ASP WebForms, die Verwendung von Vue.js als clientseitigem Framework, das Eventhandling in JavaScript-Applikationen, das Komponentenkonzept von Vue.js, der Einsatz von fertigen Komponenten von PrimeVue und die Verwendung von Services in clientseitigen Applikationen.
-Die Unterschiede zwischen Windows Forms und ASP WebForms werden analywirrt und unsere Vor- und Nachteile untersucht. Vue.js wird als leistungsstarkes clientseitiges Framework betrachtet, das ein effizientes Komponentenkonzept für wiederverwendbare UI-Komponenten bietet. Die Verwendung von PrimeVue-Komponenten zur Beschleunigung der Entwicklung und die Implementierung von Eventhandling in JavaScript-Applikationen werden behandelt. Außerdem werden Services in clientseitigen Applikationen untersucht, insbesondere die Datenstruktur zum Speichern von Call-Objekten und die dynamische Generierung des Layouts bawirrend auf JSON-Daten.
+## Einleitung Individueller Themenstellung
+Diese Arbeit untersucht verschiedene Aspekte der Benutzeroberflächenentwicklung und Implementierung von JavaScript-Anwendungen. Im Fokus stehen die Unterschiede zwischen Windows Forms und ASP WebForms, die Verwendung von Vue.js als clientseitiges Framework<sup>[1]</sup>, das Event-Handling in JavaScript-Anwendungen, das Komponenten Konzept von Vue.js, der Einsatz von fertigen Komponenten aus PrimeVue und die Verwendung von Services in clientseitigen Anwendungen.
+
+Die Unterschiede zwischen Windows Forms und ASP WebForms werden analysiert und deren jeweilige Vor- und Nachteile untersucht. Vue.js wird als leistungsstarkes clientseitiges Framework betrachtet, das ein effizientes Konzept für wiederverwendbare UI-Komponenten bietet. Die Verwendung von PrimeVue-Komponenten zur Beschleunigung der Entwicklung und die Implementierung von Event-Handling in JavaScript-Anwendungen werden behandelt.
+
+Außerdem untersuchen wir Services in clientseitigen Anwendungen, insbesondere die Datenstruktur zum Speichern von Call-Objekten und die dynamische Generierung des Layouts basierend auf JSON-Daten.
+
+### Serverseitige Anwendungen
+Serverseitige Anwendungen sind Programme, die auf einem Webserver laufen. Sie verarbeiten eingehende Anfragen von Clients, führen Berechnungen durch, interagieren mit Datenbanken und senden Antworten zurück an den Client.
+Serverseitige Anwendungen sind in der Regel verantwortlich für Aufgaben wie die Authentifizierung von Benutzern, die Verarbeitung von Formulardaten, das Speichern und Abrufen von Daten und die Erstellung von dynamischen Inhalten, die an den Client gesendet werden.
+
+Einige gebräuchliche Technologien für die serverseitige Entwicklung sind Node.js, Ruby on Rails, Django (Python), Laravel (PHP) und ASP.NET.
+
+### Clientseitige Anwendungen
+Clientseitige Anwendungen sind Programme, die in einem Webbrowser auf dem Gerät eines Benutzers laufen. Sie sind verantwortlich für die Interaktion mit dem Benutzer und das Aktualisieren der Benutzeroberfläche ohne die Notwendigkeit, eine neue Anfrage an den Server zu senden.Bei der Webentwicklung bezieht sich der Begriff „Clientseite“ auf alles in einer Webanwendung, was auf dem Client (Endbenutzergerät) dargestellt wird oder stattfindet. Dazu gehört das, was der Benutzer sieht – Text, Bilder und der Rest der Benutzeroberfläche – sowie alle Aktionen, die eine Anwendung im Browser des Benutzers ausführt.
+
+Auszeichnungssprachen wie HTML und CSS werden vom Browser auf der Clientseite interpretiert. Darüber hinaus schließen viele Entwickler heute clientseitige Prozesse in ihre Anwendungsarchitektur ein und lassen nicht mehr alles auf der Serverseite ausführen. Zum Beispiel wird Geschäftslogik für dynamische Webseiten* in einer modernen Webanwendung gewöhnlich auf der Clientseite ausgeführt.Clientseitige Anwendungen werden meist in JavaScript geschrieben und nutzen oft Bibliotheken oder Frameworks wie Vue.js, React oder Angular, um die Entwicklung zu erleichtern.
+
+Ein wichtiger Aspekt von clientseitigen Anwendungen ist das Asynchrone JavaScript und XML (AJAX), eine Technik, die es uns ermöglicht, Daten mit dem Server auszutauschen und Teile einer Webseite zu aktualisieren, ohne die gesamte Seite neu laden zu müssen.
+
+
+[1]:https://www.cloudflare.com/de-de/learning/serverless/glossary/client-side-vs-server-side/
 
 ## Unterschiede zwischen Windows Forms und ASP WebForms (5 Seiten)
 
@@ -45,8 +64,8 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
      // ASP.NET
          Response.Write("Hello, world!");
     ```
-3. Unterschiede zwischen DataGridview in Windows Forms und GridView in ASP.NET
-     Ein weiterer Unterschied besteht darin, dass in Windows Forms die DataGridview verwendet wird, während in ASP.NET die GridView zum Einsatz kommt. In ASP.NET ist es erforderlich, die Datenquelle festzulegen und den Databind-Vorgang durchzuführen.
+3. Unterschiede zwischen Data Gridview in Windows Forms und GridView in ASP.NET
+     Ein weiterer Unterschied besteht darin, dass in Windows Forms die Data Gridview verwendet wird, während in ASP.NET die GridView zum Einsatz kommt. In ASP.NET ist es erforderlich, die Datenquelle festzulegen und den Databind-Vorgang durchzuführen.
      Lösung: Definition der Datenquelle und Databind in ASP.NET GridView
      Um das Problem zu lösen, wurde in ASP.NET die DataSource-Eigenschaft des GridView festgelegt, um die Datenquelle anzugeben, und dann der Databind-Vorgang durchgeführt, um die Daten an das GridView zu binden.
      Beispiel: 
@@ -63,7 +82,9 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
      ```       
 4. Unterschiede in der Verwendung von Tag Properties in ASP.NET
      Ein weiterer Unterschied zwischen Windows Forms und ASP.NET betraf die Verwendung von Tag-Eigenschaften. In Windows Forms ermöglicht die Tag-Eigenschaft das Zuweisen von zusätzlichen Informationen oder Objekten zu einem Steuerelement. Dies ist besonders nützlich, um das ausgewählte oder bearbeitete Objekt in einem Treeview zu identifizieren.
-     //Win-Form
+     
+     Im folgenden Codeblock, der eine Windows Forms-Anwendung darstellt, wird die `Tag`-Eigenschaft verwendet, um das ausgewählte Objekt zu identifizieren und Aktionen darauf auszuführen:
+     
      ```csharp
     if (workSpaceTreeView.SelectedNode.Tag is Action)
     {
@@ -74,6 +95,9 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
         //....
     }
      ```
+     
+     Im nächsten Codeblock wird die `Tag`-Eigenschaft verwendet, um eine Aktion zu klonen oder andere spezifische Aufgaben zu erfüllen:
+
      ```csharp    
     //clone the action of the calls
     TreeNode newTreeNode = new TreeNode();
@@ -88,11 +112,10 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
     }
      //....   
      ```
-     Da ASP.NET Webanwendungen keine direkte Tag-Eigenschaft bieten, mussten wir eine alternative Lösung finden. Wir haben eine Hilfsklasse erstellt und die Informationen über das ausgewählte Objekt in einem JSON gespeichert. Mithilfe eines JsonParsers konnten wir das Objekt in ein JSON umwandeln und speichern. Hier ist ein Indem wir eine Hilfsklasse erstellt und die JSON-Konvertierung verwendet haben, konnten wir die Funktionalität der Tag-Eigenschaft in ASP.NET Webanwendungen replizieren.   
-     //Web-Form
-     > **Hinweis:** Dieser Codeausschnitt ist eine Methode namens `TryParseJson`, die versucht, einen JSON-String in ein Objekt vom Typ `T` zu parsen. Dabei wird die Newtonsoft.Json-Bibliothek für die Deserialiwir
-    rung verwendet. Der Code richtet einen Ereignishandler ein, um Fehler während der Deserialiwir
-    rung zu behandeln, und wirft einen Fehler, wenn im JSON fehlende Member vorhanden sind. Die Methode gibt einen booleschen Wert zurück, der den Erfolg oder Misserfolg des Parsing-Vorgangs anzeigt.
+     
+     Da ASP.NET Webanwendungen keine direkte Tag-Eigenschaft bieten, mussten wir eine alternative Lösung finden. Wir haben eine Hilfsklasse erstellt und die Informationen über das ausgewählte Objekt in einem JSON gespeichert. Mithilfe eines JsonParsers konnten wir das Objekt in ein JSON umwandeln und speichern. Hier ist ein Beispiel für diese Umsetzung:
+
+     Der folgende Codeblock stellt eine Methode dar, die versucht, einen JSON-String in ein Objekt vom Typ `T` zu parsen. Dabei wird die Newtonsoft.Json-Bibliothek für die Deserialisierung verwendet. Der Code richtet einen Ereignishandler ein, um Fehler während der Deserialisierung zu behandeln, und wirft einen Fehler, wenn im JSON fehlende Member vorhanden sind. Die Methode gibt einen booleschen Wert zurück, der den Erfolg oder Misserfolg des Parsing-Vorgangs anzeigt.
 
      ```csharp
      internal static bool TryParseJson<T>(string input, out T result)
@@ -107,8 +130,8 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
             return success;
         }
      ```
-
-   > **Hinweis:** Der folgende Codeausschnitt zeigt die Methode `AddCall`, die eine Instanz der Klasse `Call` erstellt und zu `Calls`-Liste hinzufügt. Anschließend wird das Objekt in ein JSON-Format konvertiert.
+     
+     Der nächste Codeblock zeigt die Methode `AddCall`, die eine Instanz der Klasse `Call` erstellt und zur `Calls`-Liste hinzufügt. Anschließend wird das Objekt in ein JSON-Format konvertiert.
 
     ```csharp
       private void AddCall()
@@ -118,6 +141,8 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
         var newCallJson = JsonConvert.SerializeObject(callToAdd);
      }
      ```
+     Im letzten Codeausschnitt verwenden wir die zuvor definierte `TryParseJson`-Methode, um das ausgewählte Objekt zu identifizieren und zu verarbeiten. Abhängig von dem resultierenden Objekttyp führen wir verschiedene Aktionen aus:
+
      ```csharp
     if (Helper.TryParseJson(selectedTN.Value, out List<InputParameter> inputParameters))
     {
@@ -127,11 +152,14 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
     {
         var selectedAction = selectedCallInList.Actions.FirstOrDefault(a => a.Id.Equals(action.Id));
     } //...
-     ```
+     ``` 
 
 ## Vue.js als clientseitiges Framework. (10 Seiten)
 
 Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzeroberflächen. Es zeichnet sich durch seine Einfachheit, Flexibilität und leistungsstarke Funktionen aus. Vue.js wurde entwickelt, um die Erstellung interaktiver Webanwendungen zu erleichtern, indem es eine strukturierte und komponentenbawirrte Herangehensweise bietet.
+
+
+[1]:https://vuejs.org/guide/extras/ways-of-using-vue.html#single-page-application-spa
 
 ## Warum Vue.js verwenden?
 
@@ -153,7 +181,7 @@ Insgesamt bietet uns Vue.js die notwendige Flexibilität, um unsere Webanwendung
 
 ### Eventhandling in einer JavaScript Applikation.
 
-- **JavaScript-Events:**<sup>[1]</sup>
+- **JavaScript-Events:**<sup>[2]</sup>
 HTML-Events sind "things", die mit HTML-Elementen geschehen.
 Wenn JavaScript in HTML-Seiten verwendet wird, kann JavaScript auf diese Ereignisse "react".
 
@@ -191,7 +219,7 @@ JavaScript-Code ist oft mehrere Zeilen lang. Es ist häufiger zu sehen, dass Eve
  <button onclick="displayDate()">Wie spät ist es?</button>
  ``` 
 
-[1]:https://www.w3schools.com/js/js_events.asp
+[2]:https://www.w3schools.com/js/js_events.asp
 
 
 
@@ -220,44 +248,52 @@ Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzero
 
 ### Komponentenkonzept von Vue.js.
 
-Das Komponentenkonzept von Vue.js ermöglicht die Entwicklung von wiederverwendbaren und modularen UI-Komponenten in JavaScript.Komponenten sind eigenständige und isolierte Teile einer Webanwendung, die unsere eigene Logik, Zustand und Darstellung haben können.Mit Vue.js können wir benutzerdefinierte Komponenten erstellen, indem wir das `Vue.component()`-Funktion verwenden oder Komponentenobjekte erstellen, die auf der Vue-Komponentenoption bawirren. Eine Vue-Komponente besteht aus drei Hauptteilen:
+Das Komponentenkonzept von Vue.js ermöglicht die Entwicklung von wiederverwendbaren und modularen UI-Komponenten in JavaScript.Komponenten sind eigenständige und isolierte Teile einer Webanwendung, die unsere eigene Logik, Zustand und Darstellung haben können.Mit Vue.js können wir benutzerdefinierte Komponenten erstellen, indem wir das `Vue.component()`-Funktion verwenden oder Komponentenobjekte erstellen, die auf der Vue-Komponentenoption bawirren. <sup>[3]</sup>Die Views und Components sind vue Dateien und haben eine bestimmte Syntax. Um sie besser bearbeiten zu können, können wir die Extension `Vetur` in VS Code installieren. Der Dateinamen soll aus mindestens 2 Wörtern bestehen (NewsContent, LoginForm, ...) um Verwechslungen mit HTML Elementen zu vermeiden.So eine Datei besteht aus mehreren Teilen: Einem Template für die HTML Darstellung, einem Style Block und einem Script Block. Du kannst die folgende Vorlage in eine neu erstellte vue Datei kopiere, um schneller arbeiten zu können:. Eine Vue-Komponente besteht aus drei Hauptteilen:
 - Template: Das Template definiert die visuelle Darstellung der Komponente. Es enthält HTML-Code mit Vue-Direktiven, die Daten binden und die Logik der Komponente steuern.
 - Script: Das Script enthält die Logik und den Zustand der Komponente. Hier können wir Daten definieren, Methoden erstellen, Lebenszyklushooks nutzen und mit externen Ressourcen interagieren.
 - Style: Der Style-Bereich enthält CSS-Regeln, die spezifisch für die Komponente sind. Hier können wir das Aussehen der Komponente anpassen, indem wir Klassen, IDs oder andere Selektoren verwenden.
 Das Komponentenkonzept ermöglicht es, Komponenten hierarchisch zu verschachteln und Daten und Events zwischen den Komponenten zu übertragen. Dies fördert die Wiederverwendbarkeit und Modularität, da Komponenten unabhängig voneinander entwickelt, getestet und wiederverwendet werden können.
 Hier ist ein einfaches Beispiel für eine Vue.js-Komponente:
-
 > **Hinweis:** Der folgende Codeausschnitt zeigt eine einfache Vue.js-Komponente. Das Template definiert eine Überschrift und einen Button, die auf eine Datenvariable und eine Methode der Komponente zugreifen.
  ```javascript
- <template>
-  <div>
-    <h2>{{ message }}</h2>
-    <button @click="changeMessage">Klick mich!</button>
-  </div>
- </template>
- <script>
- export default {
-  data() {
-    return {
-      message: "Hallo Welt!"
-    };
-  },
-  methods: {
-    changeMessage() {
-      this.message = "Neue Nachricht!";
+<script setup>
+    // Imports
+</script>
+<template>
+    <!-- A template must have one (1) root element. Usually a div with the classname
+    of your component -->
+    <div class="componentName">
+       <!-- Your html -->
+    </div>
+</template>
+<style scoped>
+    /* Your css */
+</style>
+<script>
+export default {
+    props: {
+        // Your parameters from the caller. Example: id : Number
+    },
+    data() {
+        return {
+            // Your data properties
+        };
+    },
+    mounted() {
+        // Your initialization code. Maybe async ( async mounted() {...} )
+    },
+    methods: {
+        // Your methods
+    },
+    computed: {
+        // Your computed properties
     }
-  }
- };
- </script>
- <style scoped>
- h2 {
-  color: blue;
- }
- button {
-  background-color: yellow;
- }
- </style>
+};
+</script>
 ```
+Weitere Informationen sind auf der Seite [Template Lifecycle](https://vuejs.org/guide/essentials/lifecycle.html) abrufbar.
+
+[3]:https://github.com/schletz/Wmc/blob/171ff1e057b2db672d9c638305cf5e1053e653d0/32_Vuejs/06_VuejsClient.md
 
 ### Einsatz fertiger Komponenten von PrimeVue.
 
@@ -296,13 +332,15 @@ Der Einsatz von fertigen Komponentenbibliotheken wie PrimeVue ermöglicht es uns
 
 ## Verwendung der PrimeVue Tree-Komponente
 
-In unserem spezifischen Projekt konzentrieren wir uns hauptsächlich auf die Tree-Komponente von PrimeVue. Die Tree-Komponente ist besonders nützlich, wenn wir hierarchische Daten in einer strukturierten Weise anzeigen möchten, ähnlich wie wir es in ASP.NET getan haben. Diese Komponente bietet eine Vielzahl von Funktionen, darunter das Ein- und Ausklappen von Zweigen, die Auswahl von Knoten, Drag-and-Drop-Interaktionen und vieles mehr.
+In unserem spezifischen Projekt konzentrieren wir uns hauptsächlich auf die Tree-Komponente von PrimeVue<sup>[4]</sup>. Die Tree-Komponente ist besonders nützlich, wenn wir hierarchische Daten in einer strukturierten Weise anzeigen möchten, ähnlich wie wir es in ASP.NET getan haben. Diese Komponente bietet eine Vielzahl von Funktionen, darunter das Ein- und Ausklappen von Zweigen, die Auswahl von Knoten, Drag-and-Drop-Interaktionen und vieles mehr.
 
 Die PrimeVue Tree-Komponente ermöglicht es uns, eine verschachtelte Baumstruktur zu erstellen, indem wir ein Array von Knotenobjekten bereitstellen. Jeder Knoten in diesem Array repräsentiert einen Zweig im Baum und kann weitere Knotenobjekte als Kinder enthalten.
 
+[4]:https://primevue.org/installation 
+
 ### Beispiel für die Verwendung der PrimeVue Tree-Komponente
 
-Gehen wir durch ein einfaches Beispiel, wie wir die PrimeVue Tree-Komponente in unserer Vue.js-Anwendung verwenden können:
+Gehen wir durch ein einfaches Beispiel, wie wir die PrimeVue Tree-Komponente<sup>[5]</sup> in unserer Vue.js-Anwendung verwenden können:
 
 1. Zuerst installieren wir die PrimeVue-Komponente und importieren die erforderlichen PrimeVue-Komponenten:
   ```shell
@@ -349,7 +387,7 @@ Die children enthalten spezifische Informationen über den Anruf wie den Namen, 
 Falls das actions Feld definiert ist, werden für jede Aktion und ihre Parameter weitere Kind knoten erstellt.
 Die erstellten Baumknoten repräsentieren dann die Struktur und den Inhalt unseres Baums, die wir dann an die PrimeVue Tree-Komponente übergeben.
 
-
+[5]:https://primevue.org/tree/
 
 ## Services in der clientseitigen Applikation (5 Seiten)
 
@@ -418,4 +456,44 @@ Die Anwendung des Service-Konzepts in Vue.js kann einen signifikanten Unterschie
 
 ### Dynamische Generierung des Layout auf Basis von JSON Daten.
 
-TODO
+In unserer Diplomarbeit konzentrieren wir uns auf die dynamische Implementierung von JSON-Daten, insbesondere für die Funktionen der Aktionen, die von externen Ressourcen stammen. Hierzu haben wir zuerst eine `JsonService.js` erstellt, um dynamisch eine JSON-Datei von einer Website abzurufen.
+
+In der `JsonService.js` versuchen wir, mittels des `axios`-Pakets eine Anfrage an die bereitgestellte URL zu senden, um die JSON-Daten abzurufen. 
+
+```javascript
+// import axios from 'axios';
+// for local testing
+import actions from "./serverdesigneroutputactions";
+
+export default async function () {
+  // try {
+  //   const response = await axios.get('https://www.dox42.com/modules/serverdesigneroutputactions.json');
+  //   return response.data;
+  // } catch (error) {
+  //   console.error('Error fetching JSON schema:', error);
+  //   throw error;
+  // }
+  return actions.actions;
+} 
+```
+Da wir jedoch keinen Zugriff auf den JSON-Dateilink des Unternehmens hatten, haben wir die JSON-Datei manuell in unsere lokale Umgebung heruntergeladen. Als Alternative für die spätere Verwendung haben wir die Möglichkeit zur dynamischen Abfrage als Kommentar im Code hinterlegt.
+
+Anschließend haben wir in unserer Vue.js-Klasse `CallsView` im `setup`-Skript den Json-Dienst als `fetchJSONSchema` importiert.
+
+```javascript
+import fetchJSONSchema from "../services/jsonActionService"
+```
+
+Wir setzten diesen Dienst in der mounted-Methode ein, um die in der JSON-Datei definierten Aktionen abzurufen und sowohl im `CallsService` als auch in der lokalen Zustands variable der `CallsView`-Klasse zu speichern.
+
+```javascript
+async mounted() {
+    const actions = await fetchJSONSchema();
+    console.table(actions);
+    CallService.actions = actions;
+    this.actions = actions;
+}       
+```
+Durch diese Implementierung können wir dynamisch auf die Aktionen aus der JSON-Datei zugreifen und diese in unserer Vue.js-Anwendung verwenden. Diese Methode bietet Flexibilität und erleichtert die Wartung, da wir die JSON-Datei einfach aktualisieren können, um neue Aktionen hinzuzufügen oder bestehende zu ändern. Des Weiteren ermöglicht diese Methode das dynamische Rendering von Layouts basierend auf den in der JSON-Datei definierten Daten.
+
+
