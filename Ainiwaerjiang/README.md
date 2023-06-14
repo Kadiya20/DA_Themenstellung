@@ -75,13 +75,13 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
         CellPadding="10" GridLines="None"
         OnRowDataBound="paramGridView_RowDataBound"
         Visible="true" OnSelectedIndexChanged="paramGridView_SelectedIndexChanged"
-        AutoGenerateSelectButton="true" DataKeyNames="Parameter" CssClass="table table-borderless table-striped" EnableViewState="true" ViewStateMode="Enabled">
+        AutoGenerateSelectButton="true" DataKeyNames="Parameter" CssClass="table table-border less table-striped" EnableViewState="true" ViewStateMode="Enabled">
         <Columns>
         </Columns>
     </asp:GridView>
      ```       
 4. Unterschiede in der Verwendung von Tag Properties in ASP.NET
-     Ein weiterer Unterschied zwischen Windows Forms und ASP.NET betraf die Verwendung von Tag-Eigenschaften. In Windows Forms ermöglicht die Tag-Eigenschaft das Zuweisen von zusätzlichen Informationen oder Objekten zu einem Steuerelement. Dies ist besonders nützlich, um das ausgewählte oder bearbeitete Objekt in einem Treeview zu identifizieren.
+     Ein weiterer Unterschied zwischen Windows Forms und ASP.NET betraf die Verwendung von Tag-Eigenschaften. In Windows Forms ermöglicht die Tag-Eigenschaft das Zuweisen von zusätzlichen Informationen oder Objekten zu einem Steuerelement. Dies ist besonders nützlich, um das ausgewählte oder bearbeitete Objekt in einem `Tree view` zu identifizieren.
      
      Im folgenden Codeblock, der eine Windows Forms-Anwendung darstellt, wird die `Tag`-Eigenschaft verwendet, um das ausgewählte Objekt zu identifizieren und Aktionen darauf auszuführen:
      
@@ -115,7 +115,7 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
      
      Da ASP.NET Webanwendungen keine direkte Tag-Eigenschaft bieten, mussten wir eine alternative Lösung finden. Wir haben eine Hilfsklasse erstellt und die Informationen über das ausgewählte Objekt in einem JSON gespeichert. Mithilfe eines JsonParsers konnten wir das Objekt in ein JSON umwandeln und speichern. Hier ist ein Beispiel für diese Umsetzung:
 
-     Der folgende Codeblock stellt eine Methode dar, die versucht, einen JSON-String in ein Objekt vom Typ `T` zu parsen. Dabei wird die Newtonsoft.Json-Bibliothek für die Deserialisierung verwendet. Der Code richtet einen Ereignishandler ein, um Fehler während der Deserialisierung zu behandeln, und wirft einen Fehler, wenn im JSON fehlende Member vorhanden sind. Die Methode gibt einen booleschen Wert zurück, der den Erfolg oder Misserfolg des Parsing-Vorgangs anzeigt.
+     Der folgende Codeblock stellt eine Methode dar, die versucht, einen JSON-String in ein Objekt vom Typ `T` zu parsen. Dabei wird die Newtonsoft.Json-Bibliothek für die Deserialisierung verwendet. Der Code richtet einen Ereignis handler ein, um Fehler während der Deserialisierung zu behandeln, und wirft einen Fehler, wenn im JSON fehlende Member vorhanden sind. Die Methode gibt einen booleschen Wert zurück, der den Erfolg oder Misserfolg des Parsing-Vorgangs anzeigt.
 
      ```csharp
      internal static bool TryParseJson<T>(string input, out T result)
@@ -156,7 +156,7 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
 
 ## Vue.js als clientseitiges Framework. (10 Seiten)
 
-Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzeroberflächen. Es zeichnet sich durch seine Einfachheit, Flexibilität und leistungsstarke Funktionen aus. Vue.js wurde entwickelt, um die Erstellung interaktiver Webanwendungen zu erleichtern, indem es eine strukturierte und komponentenbawirrte Herangehensweise bietet.
+Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzeroberflächen. Es zeichnet sich durch seine Einfachheit, Flexibilität und leistungsstarke Funktionen aus. Vue.js wurde entwickelt, um die Erstellung interaktiver Webanwendungen zu erleichtern, indem es eine strukturierte und Komponenten basierte Herangehensweise bietet.
 
 
 [1]:https://vuejs.org/guide/extras/ways-of-using-vue.html#single-page-application-spa
@@ -165,7 +165,7 @@ Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzero
 
 Im Kontext unserer Anwendung haben wir uns für Vue.js als alternatives Framework entschieden, da wir einige wichtige Funktionalitäten mit dem ASP.NET Framework nicht implementieren konnten. Da uns nur begrenzte Zeit zur Verfügung stand, mussten wir eine alternative Lösung finden. Vue.js wurde aufgrund seiner reinen JavaScript-Natur und der einfachen Implementierung gewählt. Es ermöglichte uns, schnell die erforderliche Funktionalität umzusetzen.
 
-Diese Entscheidung wurde auch durch die Möglichkeit beeinflusst, dass Vue.js eine effiziente Komponentenarchitektur bietet, die die Wiederverwendbarkeit von Code fördert und die Zusammenarbeit im Entwicklerteam erleichtert. Die reaktive Datenbindung von Vue.js ermöglicht es uns zudem, Änderungen in Echtzeit in der Benutzeroberfläche anzuzeigen, ohne manuelle Aktualiwirrungen durchführen zu müssen.
+Diese Entscheidung wurde auch durch die Möglichkeit beeinflusst, dass Vue.js eine effiziente Komponenten Architektur bietet, die die Wiederverwendbarkeit von Code fördert und die Zusammenarbeit im Entwicklerteam erleichtert. Die reaktive Datenbindung von Vue.js ermöglicht es uns zudem, Änderungen in Echtzeit in der Benutzeroberfläche anzuzeigen, ohne manuelle Aktualisierung durchführen zu müssen.
 
 Mit Vue.js stehen uns zudem eine Vielzahl von leistungsstarken Funktionen zur Verfügung, darunter Routing für eine bessere Navigation, Zustandsverwaltung für die effiziente Verwaltung des Anwendungszustands und Animationen für eine ansprechende Benutzeroberfläche.
 
@@ -173,9 +173,9 @@ Insgesamt bietet uns Vue.js die notwendige Flexibilität, um unsere Webanwendung
 
 - **Einfach zu erlernen und zu verwenden:** Vue.js ist relativ einfach zu erlernen, insbesondere für Entwickler, die bereits Erfahrung mit HTML, CSS und JavaScript haben. Es bietet eine klare und gut dokumentierte Syntax, die leicht verständlich ist.
 
-- **Komponentenbawirrte Architektur:** Vue.js ermöglicht es Entwicklern, unsere Benutzeroberfläche in wiederverwendbare Komponenten aufzuteilen. Dies fördert die Wartbarkeit und Wiederverwendbarkeit des Codes und erleichtert die Zusammenarbeit zwischen den Entwicklern.
+- **Komponenten basierte Architektur:** Vue.js ermöglicht es Entwicklern, unsere Benutzeroberfläche in wiederverwendbare Komponenten aufzuteilen. Dies fördert die Wartbarkeit und Wiederverwendbarkeit des Codes und erleichtert die Zusammenarbeit zwischen den Entwicklern.
 
-- **Reaktivität:** Vue.js bietet eine reaktive Datenbindung, bei der Änderungen an den Daten automatisch in der Benutzeroberfläche reflektiert werden. Dadurch bleibt die Benutzeroberfläche stets synchroniwirrt und Entwickler müssen sich nicht um manuelle Aktualiwirrungen kümmern.
+- **Reaktivität:** Vue.js bietet eine reaktive Datenbindung, bei der Änderungen an den Daten automatisch in der Benutzeroberfläche reflektiert werden. Dadurch bleibt die Benutzeroberfläche stets synchronisiert und Entwickler müssen sich nicht um manuelle Aktualisierung kümmern.
 
 - **Leistungsfähige Funktionen:** Vue.js bietet eine breite Palette von leistungsstarken Funktionen wie z.B. Routing, Zustandsverwaltung und Animationen. Diese Funktionen werden durch offizielle Plugins und Erweiterungen unterstützt, was die Entwicklung
 
@@ -227,40 +227,52 @@ JavaScript-Code ist oft mehrere Zeilen lang. Es ist häufiger zu sehen, dass Eve
 
 ## ASP.NET
 
-ASP.NET ist ein serverseitiges Webframework, das zur Entwicklung von Webanwendungen verwendet wird. Bei der Eventbehandlung in ASP.NET wird das Postback-Modell verwendet. Hier sind die grundlegenden Konzepte der Eventbehandlung in ASP.NET:
+ASP.NET ist ein serverseitiges Web framework, das zur Entwicklung von Webanwendungen verwendet wird. Bei der Event Behandlung in ASP.NET wird das Postback-Modell verwendet. Hier sind die grundlegenden Konzepte der Event Behandlung in ASP.NET:
 
 - **Serverseitige Events:** In ASP.NET werden die meisten Events serverseitig behandelt. Das bedeutet, dass der Server die Events empfängt, verarbeitet und die entsprechende Aktion ausführt. Die Events werden durch die Interaktion des Benutzers mit den Websteuerelementen ausgelöst.
 
-- **PostBack-Modell:** Beim Auslösen eines Events wird eine Postback-Anforderung an den Server gesendet. Der Server verarbeitet das Event, führt die erforderlichen Aktionen aus und rendert die aktualiwirrte Seite zurück zum Client. Dies führt zu einem vollständigen Seitenneuladen und kann die Benutzererfahrung beeinträchtigen.
+- **PostBack-Modell:** Beim Auslösen eines Events wird eine Postback-Anforderung an den Server gesendet. Der Server verarbeitet das Event, führt die erforderlichen Aktionen aus und rendert die aktualisierte Seite zurück zum Client. Dies führt zu einem vollständigen Seitenneuladen und kann die Benutzererfahrung beeinträchtigen.
 
-- **ViewState:** ASP.NET verwendet das ViewState-Konzept, um den Zustand der Seite und der Websteuerelemente zwischen den Postbacks zu speichern. Dadurch können die Websteuerelemente unseren Zustand beibehalten und die Eventbehandlung erleichtern.
+- **ViewState:** ASP.NET verwendet das ViewState-Konzept, um den Zustand der Seite und der Websteuerelemente zwischen den Postbacks zu speichern. Dadurch können die Websteuerelemente unseren Zustand beibehalten und die Event Behandlung erleichtern.
 
 ## Vue.js
 
-Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzeroberflächen. Bei der Eventbehandlung in Vue.js wird ein reaktiver Ansatz verwendet. Hier sind die grundlegenden Konzepte der Eventbehandlung in Vue.js:
+Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzeroberflächen. Bei der Event Behandlung in Vue.js wird ein reaktiver Ansatz verwendet. Hier sind die grundlegenden Konzepte der Event Behandlung in Vue.js:
 
 - **Dom-Events:** Vue.js ermöglicht die direkte Behandlung von DOM-Events in den Vorlagenkomponenten. wir können den `v-on`-Direktiven verwenden, um Events abzuhören und die entsprechenden Methoden aufzurufen.
 
-- **Komponentenbawirrte Events:** Vue.js ermöglicht die Kommunikation zwischen Komponenten über das Eventbus-System. Komponenten können Events auslösen und andere Komponenten können diese Events abhören und entsprechende Aktionen ausführen. Dadurch wird eine lose Kopplung zwischen den Komponenten erreicht.
+- **Komponenten basierte Events:** Vue.js ermöglicht die Kommunikation zwischen Komponenten über das Eventbus-System. Komponenten können Events auslösen und andere Komponenten können diese Events abhören und entsprechende Aktionen ausführen. Dadurch wird eine lose Kopplung zwischen den Komponenten erreicht.
 
-- **Reaktivität:** Vue.js bietet eine reaktive Datenbindung, bei der Änderungen an den Daten automatisch in der Benutzeroberfläche reflektiert werden. Dies ermöglicht eine effiziente und reibungslose Aktualiwirrung der Benutzeroberfläche, ohne die gesamte Seite neu zu laden.
+- **Reaktivität:** Vue.js bietet eine reaktive Datenbindung, bei der Änderungen an den Daten automatisch in der Benutzeroberfläche reflektiert werden. Dies ermöglicht eine effiziente und reibungslose Aktualisierung der Benutzeroberfläche, ohne die gesamte Seite neu zu laden.
 
 
-### Komponentenkonzept von Vue.js.
+### Komponenten Konzept von Vue.js.
 
-Das Komponentenkonzept von Vue.js ermöglicht die Entwicklung von wiederverwendbaren und modularen UI-Komponenten in JavaScript.Komponenten sind eigenständige und isolierte Teile einer Webanwendung, die unsere eigene Logik, Zustand und Darstellung haben können.Mit Vue.js können wir benutzerdefinierte Komponenten erstellen, indem wir das `Vue.component()`-Funktion verwenden oder Komponentenobjekte erstellen, die auf der Vue-Komponentenoption bawirren. <sup>[3]</sup>Die Views und Components sind vue Dateien und haben eine bestimmte Syntax. Um sie besser bearbeiten zu können, können wir die Extension `Vetur` in VS Code installieren. Der Dateinamen soll aus mindestens 2 Wörtern bestehen (NewsContent, LoginForm, ...) um Verwechslungen mit HTML Elementen zu vermeiden.So eine Datei besteht aus mehreren Teilen: Einem Template für die HTML Darstellung, einem Style Block und einem Script Block. Du kannst die folgende Vorlage in eine neu erstellte vue Datei kopiere, um schneller arbeiten zu können:. Eine Vue-Komponente besteht aus drei Hauptteilen:
-- Template: Das Template definiert die visuelle Darstellung der Komponente. Es enthält HTML-Code mit Vue-Direktiven, die Daten binden und die Logik der Komponente steuern.
-- Script: Das Script enthält die Logik und den Zustand der Komponente. Hier können wir Daten definieren, Methoden erstellen, Lebenszyklushooks nutzen und mit externen Ressourcen interagieren.
-- Style: Der Style-Bereich enthält CSS-Regeln, die spezifisch für die Komponente sind. Hier können wir das Aussehen der Komponente anpassen, indem wir Klassen, IDs oder andere Selektoren verwenden.
-Das Komponentenkonzept ermöglicht es, Komponenten hierarchisch zu verschachteln und Daten und Events zwischen den Komponenten zu übertragen. Dies fördert die Wiederverwendbarkeit und Modularität, da Komponenten unabhängig voneinander entwickelt, getestet und wiederverwendet werden können.
+Das Komponenten Konzept von Vue.js ermöglicht die Entwicklung von wiederverwendbaren und modularen UI-Komponenten in JavaScript.Komponenten sind eigenständige und isolierte Teile einer Webanwendung, die unsere eigene Logik, Zustand und Darstellung haben können.Mit Vue.js können wir benutzerdefinierte Komponenten erstellen, indem wir das `Vue.component()`-Funktion verwenden oder Komponenten Objekte erstellen, die auf der Vue-Komponentenoption basieren. Die Views und Components sind vue Dateien und haben eine bestimmte Syntax. Um sie besser bearbeiten zu können, können wir die Extension `Vetur` in VS Code installieren<sup>[3]</sup>. Der Dateinamen soll aus mindestens 2 Wörtern bestehen (NewsContent, LoginForm, ...) um Verwechslungen mit HTML Elementen zu vermeiden.So eine Datei besteht aus mehreren Teilen: Einem Template für die HTML Darstellung, einem Style Block und einem Script Block. Du kannst die folgende Vorlage in eine neu erstellte vue Datei kopiere, um schneller arbeiten zu können:. Eine Vue-Komponente besteht aus drei Hauptteilen:
+1. Template: Das Template definiert die visuelle Darstellung der Komponente. Es enthält HTML-Code mit Vue-Direktiven, die Daten binden und die Logik der Komponente steuern.
+  Im Template-Bereich gibt es spezielle Attribute für deine HTML-Elemente, die von Vue gerendert werden<sup>[3]</sup>:
+   - `{{ variable }}`: Gibt den Inhalt der Variablen aus, die in `data` oder `props` definiert wurde.
+   - `v-if`: Blendet das HTML-Element nur ein, wenn die angegebene Bedingung wahr ist. Kann in Zusammenhang mit `v-else` definiert  werden.
+   - `v-for`: Rendert das HTML-Element für jeden Eintrag im Array. Wird in Zusammenarbeit mit `v-bind:key` verwendet.
+   - `v-on`: Event handler, die auf Methoden in `methods` verweisen. Beispiel: `v-on:click="method()"`.
+   - `v-bind`: Attributs werte, die von `data` gelesen werden sollen. Beispiel: `v-bind:value`.
+   - `v-bind:class`: Speziell für das bedingte Aktivieren von CSS-Klassen. Siehe [Binding HTML](https://vuejs.org/guide/essentials/class-and-style.html)Classes.
+   - `v-model`: Für Formularfelder. Werte werden in ein Property in `data` geschrieben und von dort gelesen. Beispiel: `v-model=model.myFormField`.
+
+1. Script: Das Script enthält die Logik und den Zustand der Komponente. Hier können wir Daten definieren, Methoden erstellen, Lebenszyklus hooks nutzen und mit externen Ressourcen interagieren.
+   
+2. Style: Der Style-Bereich enthält CSS-Regeln, die spezifisch für die Komponente sind. Hier können wir das Aussehen der Komponente anpassen, indem wir Klassen, IDs oder andere Selektoren verwenden.
+Das Komponenten Konzept ermöglicht es, Komponenten hierarchisch zu verschachteln und Daten und Events zwischen den Komponenten zu übertragen. Dies fördert die Wiederverwendbarkeit und Modularität, da Komponenten unabhängig voneinander entwickelt, getestet und wiederverwendet werden können.
+
 Hier ist ein einfaches Beispiel für eine Vue.js-Komponente:
-> **Hinweis:** Der folgende Codeausschnitt zeigt eine einfache Vue.js-Komponente. Das Template definiert eine Überschrift und einen Button, die auf eine Datenvariable und eine Methode der Komponente zugreifen.
+
+> **Hinweis:** Der folgende Codeausschnitt zeigt eine einfache Vue.js-Komponente. Das Template definiert eine Überschrift und einen Button, die auf eine Daten variable und eine Methode der Komponente zugreifen.
  ```javascript
 <script setup>
     // Imports
 </script>
 <template>
-    <!-- A template must have one (1) root element. Usually a div with the classname
+    <!-- A template must have one (1) root element. Usually a div with the class name
     of your component -->
     <div class="componentName">
        <!-- Your html -->
@@ -328,7 +340,7 @@ Hier ist ein Beispiel für die Verwendung des PrimeVue Button-Komponenten:
 
 PrimeVue bietet zahlreiche anpassbare Optionen für jede Komponente, sodass wir das Erscheinungsbild und Verhalten nach unseren Bedürfnissen anpassen können.
 
-Der Einsatz von fertigen Komponentenbibliotheken wie PrimeVue ermöglicht es uns, auf bewährte Lösungen zurückzugreifen, Zeit bei der Entwicklung zu sparen und eine konsistente und ansprechende Benutzeroberfläche zu erstellen.
+Der Einsatz von fertigen Komponenten_Bibliotheken wie PrimeVue ermöglicht es uns, auf bewährte Lösungen zurückzugreifen, Zeit bei der Entwicklung zu sparen und eine konsistente und ansprechende Benutzeroberfläche zu erstellen.
 
 ## Verwendung der PrimeVue Tree-Komponente
 
@@ -361,7 +373,7 @@ Gehen wir durch ein einfaches Beispiel, wie wir die PrimeVue Tree-Komponente<sup
    <Tree selectionMode="single":value="treeNodes"v-on:node-select="onNodeSelect"v-model:expanded-keys="expandedKeys"@toggle="onToggle"></Tree>
    ```
    
-5. Anstatt die Baumknoten direkt in unseren Daten zu definieren, haben wir eine Methode `getCalls()` in "Callservice" implementiert, die einen dynamischen Baum aus unseren Anrufdaten erstellt:
+5. Anstatt die Baumknoten direkt in unseren Daten zu definieren, haben wir eine Methode `getCalls()` in `CallService` implementiert, die einen dynamischen Baum aus unseren Anrufdaten erstellt:
 
 ```javascript
  getCalls() {....
@@ -495,5 +507,57 @@ async mounted() {
 }       
 ```
 Durch diese Implementierung können wir dynamisch auf die Aktionen aus der JSON-Datei zugreifen und diese in unserer Vue.js-Anwendung verwenden. Diese Methode bietet Flexibilität und erleichtert die Wartung, da wir die JSON-Datei einfach aktualisieren können, um neue Aktionen hinzuzufügen oder bestehende zu ändern. Des Weiteren ermöglicht diese Methode das dynamische Rendering von Layouts basierend auf den in der JSON-Datei definierten Daten.
+
+Nach dem Speichern der JSON-Objekte in unseren lokalen Variablen haben wir eine `ActionComponent` erstellt, um das Objekt mit der korrekten Struktur zu lesen.
+
+```vue
+<template>
+    .....
+        <div v-if="actions.length > 0" class="ActionList">
+          <div class="row" v-for="(action, index) in actions" :key="index">
+            <div class="column" v-for="(param, paramIndex) in action.parameters" :key="paramIndex">
+                <div class="label">{{ param.name }}</div>
+          ..
+                  <input v-model="param.value" v-on:change="$emit('change')" />
+          ..
+   .....
+</template>
+```
+Diese Komponente verarbeitet die "actions" als Eigenschaft und rendert sie dynamisch im Template. Jede Aktion besteht aus mehreren Parametern, die ebenfalls dynamisch gerendert werden. Jeder Parameter besteht aus einem Namen und einem Wert, der in einem Eingabefeld dargestellt wird. Änderungen an diesen Werten lösen ein "change"-Ereignis aus, das an die übergeordnete Komponente gesendet wird.
+
+Wir haben diese ActionComponent in unsere CallsView-Klasse importiert und sie in unserem Template eingebunden.
+```javascript
+<ActionComponent v-if="selectedAction !== null"
+  v-bind:actions="selectedAction.actions">
+</ActionComponent>
+```
+In diesem Ausschnitt binden wir die Aktionen der ausgewählten Aktion an die ActionComponent. Wenn eine Aktion ausgewählt ist (selectedAction !== null), wird die ActionComponent gerendert und die Aktionen der ausgewählten Aktion werden übergeben.
+
+Zudem haben wir in unserer data-Methode ein Array namens actions hinzugefügt, um die Aktionen zu speichern.
+```javascript
+data() {
+  return {
+    actions: [],
+    //...
+  };
+}
+```
+Um eine Aktion in unseren `Tree` hinzuzufügen, haben wir in unserer CallService-Klasse eine Methode namens `addAction` implementiert. Diese Methode sucht nach dem entsprechenden `Call` basierend auf dem Namen und fügt die übergebene `Aktion` hinzu.
+
+In der `CallsView` haben wir eine Methode implementiert, um die Aktionen mit dem Name des Actions zu unterscheiden. Hier ist ein Beispiel, wie dies aussehen,In diesem Codeausschnitt suchen wir die SharePoint-Aktion in den verfügbaren Aktionen (dies wird durch die Methode find erreicht, die das erste Element in dem Array zurückgibt, das die Testfunktion erfüllt). Wenn die Aktion gefunden wird, rufen wir die Methode `addAction` auf und fügen die `Aktion` zum ausgewählten `Call` hinzu.
+
+```javascript
+addSharepointAction(call) {
+  const spAction = this.actions.find(action => action.name === "SharepointAction");
+  if (spAction) {
+    CallService.addAction(call.data, spAction);
+    console.log("Sharepoint action added to call:", call.data.name);
+  } else {
+    console.error("Could not find Sharepoint action in JSON file");
+  }
+},
+```
+
+
 
 
