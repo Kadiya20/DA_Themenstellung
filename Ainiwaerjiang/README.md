@@ -54,7 +54,7 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
         alert("Diese Aktion war erfolgreich!");
      </script>
     ```
-2. Unterschiede in der Konsolenausgabe zwischen Windows Forms und ASP.NET
+2. Unterschiede in der Konsolen Ausgabe zwischen Windows Forms und ASP.NET
      ein weiterer Unterschied besteht darin, dass die Console.Write-Funktion in Windows Forms vorhanden ist, jedoch in ASP.NET durch Response.Write ersetzt werden muss.
      Lösung: Verwendung von Response.Write in ASP.NET
      Um das Problem zu lösen, wurde Response.Write anstelle von Console.Write verwendet, um Text in die HTTP-Antwort auszugeben. Beispiel:
@@ -64,10 +64,10 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
      // ASP.NET
          Response.Write("Hello, world!");
     ```
-3. Unterschiede zwischen Data Gridview in Windows Forms und GridView in ASP.NET
-     Ein weiterer Unterschied besteht darin, dass in Windows Forms die Data Gridview verwendet wird, während in ASP.NET die GridView zum Einsatz kommt. In ASP.NET ist es erforderlich, die Datenquelle festzulegen und den Databind-Vorgang durchzuführen.
-     Lösung: Definition der Datenquelle und Databind in ASP.NET GridView
-     Um das Problem zu lösen, wurde in ASP.NET die DataSource-Eigenschaft des GridView festgelegt, um die Datenquelle anzugeben, und dann der Databind-Vorgang durchgeführt, um die Daten an das GridView zu binden.
+3. Unterschiede zwischen Data Grid_view in Windows Forms und GridView in ASP.NET
+     Ein weiterer Unterschied besteht darin, dass in Windows Forms die Data Grid_view verwendet wird, während in ASP.NET die GridView zum Einsatz kommt. In ASP.NET ist es erforderlich, die Datenquelle festzulegen und den Data_bind-Vorgang durchzuführen.
+     Lösung: Definition der Datenquelle und Data_bind in ASP.NET GridView
+     Um das Problem zu lösen, wurde in ASP.NET die DataSource-Eigenschaft des GridView festgelegt, um die Datenquelle anzugeben, und dann der Data_bind-Vorgang durchgeführt, um die Daten an das GridView zu binden.
      Beispiel: 
      // ASP.NET
      ```csharp
@@ -156,10 +156,10 @@ Während des Projekts sind wir auf verschiedene Herausforderungen gestoßen. Hie
 
 ## Vue.js als clientseitiges Framework. (10 Seiten)
 
-Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzeroberflächen. Es zeichnet sich durch seine Einfachheit, Flexibilität und leistungsstarke Funktionen aus. Vue.js wurde entwickelt, um die Erstellung interaktiver Webanwendungen zu erleichtern, indem es eine strukturierte und Komponenten basierte Herangehensweise bietet.
+Vue.js<sup>[5]</sup> ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzeroberflächen. Es zeichnet sich durch seine Einfachheit, Flexibilität und leistungsstarke Funktionen aus. Vue.js wurde entwickelt, um die Erstellung interaktiver Webanwendungen zu erleichtern, indem es eine strukturierte und Komponenten basierte Herangehensweise bietet.
 
 
-[1]:https://vuejs.org/guide/extras/ways-of-using-vue.html#single-page-application-spa
+[5]:https://vuejs.org/guide/extras/ways-of-using-vue.html#single-page-application-spa
 
 ## Warum Vue.js verwenden?
 
@@ -177,16 +177,27 @@ Insgesamt bietet uns Vue.js die notwendige Flexibilität, um unsere Webanwendung
 
 - **Reaktivität:** Vue.js bietet eine reaktive Datenbindung, bei der Änderungen an den Daten automatisch in der Benutzeroberfläche reflektiert werden. Dadurch bleibt die Benutzeroberfläche stets synchronisiert und Entwickler müssen sich nicht um manuelle Aktualisierung kümmern.
 
-- **Leistungsfähige Funktionen:** Vue.js bietet eine breite Palette von leistungsstarken Funktionen wie z.B. Routing, Zustandsverwaltung und Animationen. Diese Funktionen werden durch offizielle Plugins und Erweiterungen unterstützt, was die Entwicklung
+- **Leistungsfähige Funktionen:** Vue.js bietet eine breite Palette von leistungsstarken Funktionen wie z.B. Routing, Zustandsverwaltung und Animationen. Diese Funktionen werden durch offizielle Plugins und Erweiterungen unterstützt, was die Entwicklung.
+  
+#### client-side-vue/dependencies/ <sup>[7]</sup>
+  
+- **Vue Router:** Vue Router ist das offizielle Router-Plugin für Vue.js. Es ermöglicht die Navigation innerhalb einer Single-Page-Anwendung (SPA).
 
-### Eventhandling in einer JavaScript Applikation.
+- **http-vue-loader:** http-vue-loader ist ein Client-seitiger .vue-Komponentenlader für Vue.js. Es ermöglicht das Laden von .vue-Dateien direkt im Browser, ohne dass ein Build-Prozess erforderlich ist.
+
+- **Axios:** Axios ist ein auf Promises basierender HTTP-Client für das Erstellen von Ajax-/HTTP-Anfragen in Vue.js.
+
+[7]:https://github.com/justinwash/Client-Side-Vue
+
+### Event handling in einer JavaScript Applikation.
+
+Die Verarbeitung von Ereignissen in JavaScript ist ein grundlegender Aspekt bei der Entwicklung interaktiver Webanwendungen. In diesem Artikel werden die Grundlagen des Event Handlings in JavaScript erläutert und wie Event-Handler hinzugefügt werden können.
 
 - **JavaScript-Events:**<sup>[2]</sup>
-HTML-Events sind "things", die mit HTML-Elementen geschehen.
-Wenn JavaScript in HTML-Seiten verwendet wird, kann JavaScript auf diese Ereignisse "react".
+JavaScript-Events sind Ereignisse, die in Verbindung mit HTML-Elementen auftreten. Wenn JavaScript in HTML-Seiten verwendet wird, kann es auf diese Ereignisse reagieren und entsprechende Aktionen ausführen.
 
 - **HTML-Events:**
-Ein HTML-Event kann etwas sein, das der Browser tut, oder etwas, das ein Benutzer tut.
+Ein HTML-Event kann entweder etwas sein, das vom Browser selbst ausgelöst wird, oder etwas, das ein Benutzer auf der Webseite tut. Beispiele für HTML-Events sind das Laden einer Webseite, Änderungen an Eingabefeldern oder das Klicken auf einen Button.
 
 > **Hinweis:** Hier sind einige Beispiele für HTML-Events:
 
@@ -194,7 +205,7 @@ Ein HTML-Event kann etwas sein, das der Browser tut, oder etwas, das ein Benutze
 - Ein HTML-Eingabefeld wurde geändert
 - Ein HTML-Button wurde angeklickt, Oftmals möchten Sie etwas tun, wenn Ereignisse eintreten.
 
-HTML erlaubt das Hinzufügen von Event-Handler-Attributen, mit JavaScript-Code, zu HTML-Elementen.
+Um auf HTML-Events zu reagieren, können Event-Handler-Attribute mit JavaScript-Code zu HTML-Elementen hinzugefügt werden.
 
 Mit einfachen Anführungszeichen:
  ```javascript
@@ -218,6 +229,20 @@ JavaScript-Code ist oft mehrere Zeilen lang. Es ist häufiger zu sehen, dass Eve
  ```javascript
  <button onclick="displayDate()">Wie spät ist es?</button>
  ``` 
+
+ Alternativ zum Hinzufügen von Event-Handlern direkt in HTML-Attributen können Event-Handler auch mit JavaScript-Code hinzugefügt werden.
+ ```javascript
+ var button = document.getElementById('myButton');
+  button.addEventListener('click', handleClick);
+  function handleClick() {
+   // Event-Handler-Code hier
+   }
+   ```
+
+ In diesem Beispiel wird ein Event-Handler für den Klick auf den Button mit der ID "myButton" hinzugefügt. Der Event-Handler ist die Funktion handleClick(), die den entsprechenden Code enthält, der beim Klicken des Buttons ausgeführt werden soll.
+ Diese Methode bietet eine klarere Trennung zwischen HTML und JavaScript und ermöglicht eine einfachere Wartung und Erweiterbarkeit des Codes.
+ Das Event-Handling in JavaScript ist ein umfangreiches Thema mit vielen weiteren Konzepten und Funktionen. Durch das Verständnis der Grundlagen können Entwickler jedoch schon einmal einen guten Startpunkt für die Verarbeitung von Ereignissen in ihren JavaScript-Anwendungen haben.
+
 
 [2]:https://www.w3schools.com/js/js_events.asp
 
@@ -244,6 +269,7 @@ Vue.js ist ein clientseitiges JavaScript-Framework zur Entwicklung von Benutzero
 - **Komponenten basierte Events:** Vue.js ermöglicht die Kommunikation zwischen Komponenten über das Eventbus-System. Komponenten können Events auslösen und andere Komponenten können diese Events abhören und entsprechende Aktionen ausführen. Dadurch wird eine lose Kopplung zwischen den Komponenten erreicht.
 
 - **Reaktivität:** Vue.js bietet eine reaktive Datenbindung, bei der Änderungen an den Daten automatisch in der Benutzeroberfläche reflektiert werden. Dies ermöglicht eine effiziente und reibungslose Aktualisierung der Benutzeroberfläche, ohne die gesamte Seite neu zu laden.
+  
 
 
 ### Komponenten Konzept von Vue.js.
@@ -402,12 +428,40 @@ Die erstellten Baumknoten repräsentieren dann die Struktur und den Inhalt unser
 [5]:https://primevue.org/tree/
 
 ## Services in der clientseitigen Applikation (5 Seiten)
+### Die Rolle von Services in Vue.js
+
+In Vue.js spielen Services eine wichtige Rolle, um die Funktionalität, Wartbarkeit und Lesbarkeit der Anwendung zu verbessern. Services ermöglichen es uns, unseren Code zu organisieren, indem sie bestimmte Funktionen oder Features kapseln, die über verschiedene Komponenten der Anwendung hinweg genutzt werden können.
+
+Ein gutes Beispiel für die Anwendung von Services in Vue.js ist die Verwaltung von API-Aufrufen oder die Kapselung von Geschäftslogik, die mehrmals in der Anwendung wiederverwendet wird. In unserem Fall haben wir einen `CallService` erstellt, um Anrufe und deren zugehörige Daten zu verwalten.
+
+Es ist auch wichtig, den Service korrekt in die Vue.js-Anwendung zu integrieren. Dies kann durch das Erstellen einer Service-Instanz und deren Registrierung in der Vue-Komponente erfolgen. Dadurch wird sichergestellt, dass der Service in der gesamten Anwendung verwendet werden kann und seine Funktionen den Komponenten zur Verfügung stehen.
+
+Die Verwendung von Services in Vue.js bringt mehrere Vorteile mit sich:
+
+- **Wiederverwendbarkeit**: Durch die Kapselung von Funktionen oder Logik in einem Service können wir diese an verschiedenen Stellen in der Anwendung wiederverwenden, ohne den Code duplizieren zu müssen.
+
+- **Separation von Concerns**: Services ermöglichen eine klare Trennung der Verantwortlichkeiten in der Anwendung. Die Komponenten können sich auf die Darstellung und Interaktion mit der Benutzeroberfläche konzentrieren, während die Services die Geschäftslogik und den Datenzugriff handhaben.
+
+- **Testbarkeit**: Services können leicht isoliert getestet werden, da sie unabhängig von den Komponenten funktionieren. Dadurch wird die Testbarkeit der Anwendung verbessert.
+
+- **Lesbarkeit und Wartbarkeit**: Durch die Verwendung von Services wird der Code strukturierter und leichter lesbar. Änderungen oder Erweiterungen an der Funktionalität können einfach in den entsprechenden Service implementiert werden, ohne den gesamten Code der Komponenten zu ändern.
+
+Es gibt verschiedene Möglichkeiten, Services in Vue.js zu implementieren, je nach den Anforderungen und der Komplexität der Anwendung. Einige Entwickler bevorzugen die Verwendung von JavaScript-Klassen, während andere einfache JavaScript-Objekte als Services nutzen. Die Wahl der Implementierung hängt von den spezifischen Anforderungen der Anwendung ab.
+
+Um weitere Informationen und Beispiele zur Verwendung von Services in Vue.js zu erhalten, können Sie die offizielle Vue.js-Dokumentation und andere qualitativ hochwertige Online-Ressourcen konsultieren.
+
+Referenzen:
+- Vue.js Dokumentation: [https://vuejs.org/v2/guide/](https://vuejs.org/v2/guide/)
+- Vue.js Style Guide: [https://vuejs.org/v2/style-guide/](https://vuejs.org/v2/style-guide/)
+- "Vue.js 2 Cookbook" von Andrea Passaglia (Packt Publishing, 2017)
+- "Mastering Vue.js" von Olga Filipova (Packt Publishing, 2017)
+
 
 ### Datenstruktur zum Speichern der Call Objekte.
 
-Services in clientseitigen Applikationen, insbesondere in Vue.js, spielen eine entscheidende Rolle, um die Wartbarkeit und Lesbarkeit der Anwendung zu verbessern. Services ermöglichen es uns, unseren Code zu organisieren, indem sie bestimmte Funktionen oder Features kapseln, die über verschiedene Komponenten der Anwendung hinweg genutzt werden können.
+Es ist wichtig, eine saubere und strukturierte Datenstruktur zu haben, um die Call-Objekte zu speichern. Eine gängige Methode ist die Verwendung eines Arrays oder eines Objekts, um die verschiedenen Call-Objekte zu verwalten. Dies ermöglicht es uns, leicht auf die einzelnen Calls zuzugreifen, sie zu bearbeiten oder zu löschen.
 
-Ein gutes Beispiel für die Anwendung von Services in Vue.js ist die Verwaltung von API-Aufrufen oder die Kapselung von Geschäftslogik, die mehrmals in der Anwendung wiederverwendet wird. In unserem Fall haben wir einen `CallService` erstellt, um Anrufe und deren zugehörige Daten zu verwalten.
+Zusätzlich zur Speicherung der Call-Objekte kann der Service auch Methoden enthalten, um die Daten abzurufen, zu aktualisieren oder neue Calls hinzuzufügen. Diese Methoden können dann von den verschiedenen Komponenten der Anwendung aufgerufen werden, um auf die Call-Daten zuzugreifen und sie zu manipulieren.
 
 ## CallService Klasse
 
