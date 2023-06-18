@@ -300,26 +300,211 @@ namespace WindowsFormsApplication1
 Microsoft https://learn.microsoft.com/en-us/dotnet/api/
 ChatGPT https://chat.openai.com/?model=gpt-4, abgerufen am 26.5.2023
 
-## Erstellung eine GUI Mockups (8 Seiten)
+## Erstellung eine GUI Mockups (8 Seiten/aber 5 Seiten)
 
 ### Warum ein Mockup?
 
-TODO
+Ein Mockup in der Softwareentwicklung ist eine Art von Prototyp, der dazu dient, das Design und die Funktionalität der Anwendung zu visualisieren. 
+Es ist eine schematische Darstellung, die zeigt, wie die Software oder Website aussehen und funktionieren wird. Hier sind einige Gründe, warum ein Mockup in der Softwareentwicklung nützlich ist:
+
+1. **Kommunikation und Visualisierung**: Mockups helfen dem Team und den Stakeholdern, ein besseres Verständnis davon zu bekommen, wie das fertige Produkt aussehen und funktionieren soll. 
+Sie ermöglichen es den Entwicklern, ihre Ideen zu präsentieren und Feedback zu sammeln.
+
+2. **Fehler frühzeitig erkennen**: Durch die Verwendung von Mockups können Probleme und Unstimmigkeiten im Design frühzeitig erkannt und korrigiert werden, bevor die tatsächliche Entwicklung beginnt.
+
+3. **Effizienz**: Mit einem Mockup kann das Entwicklerteam Änderungen am Design testen und anpassen, ohne Code schreiben zu müssen. Das kann Zeit und Ressourcen sparen.
+
+4. **Nutzererfahrung**: Ein Mockup kann genutzt werden, um die Benutzererfahrung zu testen und zu verbessern. Es kann dabei helfen, zu überprüfen, ob die geplante Anwendung benutzerfreundlich und intuitiv ist.
+
+5. **Stakeholder-Einbindung**: Mockups sind besonders nützlich, um Stakeholder in den Entwicklungsprozess einzubeziehen. Sie ermöglichen es ihnen, die Fortschritte zu verfolgen und Feedback zu geben, was zu einem besseren Endprodukt führen kann.
+
+<u>Es ist wichtig zu beachten, dass ein Mockup nicht die endgültige Version der Anwendung ist.</u> Es ist ein Werkzeug zur Planung und Kommunikation und kann und sollte auf Basis von Feedback und neuen Erkenntnissen angepasst werden.
+
+***Quelle*** 
+ChatGPT https://chat.openai.com/?model=gpt-4, abgerufen am 31.5.2023
 
 ### Möglichkeiten von Adobe XD.
 
-TODO
+Adobe XD, auch bekannt als Experience Design, stellt eine hochentwickelte Plattform für das Design und Prototyping von Benutzeroberflächen für Web- und mobile Anwendungen dar. Die folgende Auflistung präsentiert zentrale Funktionen und Merkmale von Adobe XD:
 
-## Nutzung von Versionsverwaltungssystemem in der Entwicklung (5 Seiten)
+Design-Funktionen: Adobe XD bietet eine umfassende Auswahl an Design-Werkzeugen, die es ermöglichen, Benutzeroberflächen für diverse Geräte und Bildschirmgrößen zu gestalten. So ist das Erzeugen von Vektorgrafiken, das Importieren von Bildern, das Individualisieren von Farben und Schriftarten und vieles mehr möglich.
+
+Prototyping: Mit Adobe XD lässt sich die Erstellung interaktiver Prototypen realisieren. Hiermit können Übergänge und Animationen definiert werden, um das Verhalten einer Anwendung zu simulieren. Dies ermöglicht eine Vorstellung davon, wie das Endprodukt aussehen und agieren könnte.
+
+Interaktionen und Animationen: Adobe XD bietet die Möglichkeit, Mikrointeraktionen und Animationen zu entwickeln, die dazu beitragen können, die Benutzeroberfläche lebendiger und intuitiver zu gestalten.
+
+Kollaboration: Adobe XD unterstützt die Zusammenarbeit zwischen Designern, Entwicklern und Stakeholdern. Es ermöglicht das Teilen von Designs und Prototypen, das Einholen von Rückmeldungen und das Umsetzen von Modifikationen in Echtzeit.
+
+Integration: Adobe XD lässt sich mit anderen Adobe-Produkten und Tools von Drittanbietern integrieren, was den Design- und Entwicklungsprozess weiter optimieren kann.
+
+Responsives Design: Mit Adobe XD können Designs erzeugt werden, die sich automatisch an verschiedene Bildschirmgrößen anpassen.
+
+Benutzererfahrungstests: Adobe XD ermöglicht das Durchführen von Tests zur Benutzererfahrung, indem Prototypen mit realen Benutzern geteilt werden können. Die Aufzeichnung deren Interaktionen liefert wertvolles Feedback zur Verbesserung der Anwendung.
+
+Es ist zu beachten, dass Adobe XD primär als Design- und Prototyping-Werkzeug konzipiert ist und nicht zur Erstellung von funktionsfähigem Code dient. Es ermöglicht die Visualisierung und Simulation des Designs und Verhaltens einer Anwendung, die eigentliche Codierung muss jedoch separat erfolgen.
+
+***Quelle*** 
+ChatGPT https://chat.openai.com/?model=gpt-4, abgerufen am 31.5.2023
+
+### Umsetzung mit Adobe XD. 
+![Alt text](image-7.png)
+Bild 1 : ein Übersicht zu allen Seiten
+
+![Alt text](image-8.png)
+![Alt text](image-11.png)
+
+![Alt text](image-9.png)
+
+![Alt text](image-10.png)
+
+## Nutzung von Versionsverwaltungssystemen in der Entwicklung (5 Seiten/aber 10 Seiten) 
 
 ### Kommunikation mit dem Auftraggeber.
 
-TODO
+Die Kommunikation mit dem Auftraggeber (oder dem Kunden) ist ein wesentlicher Aspekt jedes Softwareentwicklungsprojekts. Hier sind einige Strategien und Best Practices, die helfen können:
+
+1. Klare Kommunikation: Die Sprache sollte klar und ohne Fachjargon sein, es sei denn, der Kunde ist technisch versiert.
+
+2. Regelmäßige Updates: Es ist wichtig, regelmäßige Updates und Fortschrittsberichte zu geben. Das hilft, den Kunden auf dem Laufenden zu halten und mögliche Überraschungen oder Fehlannahmen zu vermeiden.
+
+3. Aktives Zuhören: Versuchen Sie, die Bedürfnisse und Anforderungen des Kunden vollständig zu verstehen. Stellen Sie Nachfragen, wenn Sie unsicher sind.
+
+4. Feedback einholen: Lassen Sie den Kunden oft und früh das Produkt testen und Feedback geben. Dies ermöglicht es, frühzeitig Probleme zu erkennen und Korrekturen vorzunehmen.
+
+5. Transparenz: Seien Sie offen und ehrlich über Herausforderungen, Probleme und Verzögerungen. Die meisten Kunden schätzen es, frühzeitig informiert zu werden, anstatt später unangenehme Überraschungen zu erleben.
+
+6. Verwendung geeigneter Kommunikationskanäle: E-Mail, Videoanrufe, Telefonate, persönliche Meetings - je nach Situation und Kundenpräferenz kann der geeignete Kanal variieren.
+
+7. Einrichtung regelmäßiger Meetings: Wöchentliche oder bi-wöchentliche Stand-up-Meetings sind oft nützlich, um die aktuelle Situation zu besprechen und mögliche Hindernisse zu identifizieren.
+
+8. Verständnis und Respekt für die Geschäftsanforderungen des Kunden: Oft geht es nicht nur um die technische Lösung, sondern auch um Geschäftsziele, Zeitpläne und Budgets. Versuchen Sie, diese Faktoren zu verstehen und zu respektieren.
+
+9. Verwendung von Projektmanagement- und Kollaborationstools: Tools wie Jira, Trello, Asana, Slack usw. können dabei helfen, die Kommunikation zu strukturieren und alle Beteiligten auf dem Laufenden zu halten.
+
+10. Erstellung und Einhaltung eines Kommunikationsplans: Dieser sollte festlegen, wer wann mit wem kommuniziert und über welche Kanäle.
+
+Diese Strategien helfen, eine positive Beziehung mit dem Kunden aufzubauen, was letztendlich zu einem erfolgreichen Projekt führt.
+
+ ***Quelle***
+ mindtwo https://www.mindtwo.de/blog/kommunikation-in-der-softwareentwicklung-best-practices, abgerufen am 13.06.2023
 
 ### Integration von Jira und BitBucket.
+### Was sind Jira und Bitbucket?
+Jira und Bitbucket sind beide Produkte von Atlassian und sie integrieren sich nahtlos miteinander. Sie sind leistungsstarke Tools, die zur Verwaltung von Software-Entwicklungsprojekten verwendet werden können.
 
-TODO
+**Jira** ist ein Projektmanagement-Tool, das insbesondere in der agilen Softwareentwicklung weit verbreitet ist. Es bietet Funktionen für die Nachverfolgung von Aufgaben (Issues), das Erstellen und Verwalten von Backlogs, Sprints und Scrum- oder Kanban-Boards. Jira hilft Teams, Aufgaben zu organisieren, Prioritäten zu setzen und den Projektstatus transparent und sichtbar zu machen.
+
+**Bitbucket** ist eine webbasierte Versionskontroll-Repository-Hosting-Dienst für Quellcode und Entwicklungsprojekte, der Mercurial und Git unterstützt. Bitbucket ermöglicht es Entwicklerteams, Code gemeinsam zu bearbeiten und zu verwalten.
+
+### Warum und wie funktionieren Jira und Bitbucket zusammen? 
+1. Issue Tracking und Code-Zuordnung: Mit Jira können Sie Issues (Aufgaben, Fehler, Verbesserungen usw.) erstellen und verwalten, die im Laufe eines Softwareprojekts auftreten. Diese Issues können dann in Bitbucket direkt mit bestimmten Code-Commits verknüpft werden. Indem Sie in der Commit-Nachricht auf eine Jira-Issue-Nummer verweisen, wird eine Verbindung zwischen dem Code und dem Issue hergestellt. So können Sie und Ihr Team den gesamten Kontext und die Historie einer Codeänderung leicht nachvollziehen.
+
+2. Branching-Strategie: Sie können auch direkt von einem Jira-Issue aus einen neuen Branch in Bitbucket erstellen. Das erleichtert das Arbeiten an spezifischen Issues und stellt sicher, dass die Arbeit gut organisiert ist.
+
+3. Status-Updates: Wenn Sie einen Pull-Request in Bitbucket erstellen oder zusammenführen, wird der Status des zugehörigen Jira-Issues automatisch aktualisiert. So bleiben alle Teammitglieder über den Fortschritt der Arbeit informiert.
+
+4. Code-Reviews: Bitbucket ermöglicht Code-Reviews durch Pull-Anfragen. Diese Reviews können an Jira-Issues gekoppelt sein, sodass der gesamte Review-Prozess nachverfolgbar und transparent ist.
+
+5. Release-Tracking: Schließlich können Sie in Jira Versionsinformationen erstellen und verwalten. Sobald der Code in Bitbucket zusammengeführt und markiert ist, kann die zugehörige Version in Jira geschlossen werden. Dadurch haben Sie eine klare Übersicht über die Entwicklung und die Bereitstellung von Funktionen und Bugfixes.
+
+### Wie kann ein Jira-Issue mit einem Git-Branch referenziert werden? 
+1. Erstens ein neuen Projekt auf Jira erstellen und ebenso auf Bitbucket einen sogenannte Repository<sup>[1]</sup> erstellen. 
+2. Alle Teammitglieder zu dem Projekt und Repository einen Zugriff gewähren. 
+3. Bei der Projekteinstellung des Jiras konfigurieren wir, damit der Projekt Bitbucket Repository, beziehungsweise Code verknüpft wird.  
+4. Create issue 
+![Alt text](image-3.png)
+
+5. Add a child issue und einen Name dafür geben. 
+![Alt text](image-1.png)
+![Alt text](image.png)
+
+6. Create branch 
+![Alt text](image-2.png)
+![Alt text](image-4.png)
+
+7. Check out den neuen Branch auf der Lokal Repository. 
+```bash
+git checkout [Branch name]    
+```
+
+Nun ist ein neuer Branch mit einem Issue bereit. Das heißt, ein Arbeitsfeld nur für diesen Issue " Action Component - SharePoint Action " bereitgestellt. 
+
+
 
 ### Issues und Bugtrack im konkreten Projekt.
+Wie vorherigen Punkt gesehen ist, werden alle Issues seinen eigenen Branch haben. Nachdem ein Issue als Code implementiert ist, wird der Code gepusht und auf seinen Parent-Branch zusammengeführt.
+Die kleine Branch (auf Deutsch Zweige) stammen von einem Parent-Branch und wenn die fertig gearbeitet wurden, werden sie wieder auf einem Branch zusammengeführt. Sozusagen werden kleine Arbeitsschnitte am Ende ein ganzes Projekt. Die Theorie ist schön, jedoch läuft es in der Praxis nicht immer nach der Plan. Da mehrere Leute auf einem Projekt arbeiten, sollte jeder die vielen Regeln streng befolgen und die Ausnahmen kennen. 
+Hier sind einige Beispiele, die wir bei Git-Bedienung festgesteckt wurden. 
 
-TODO
+#### Beim Check-out Fehler 
+Die Fehlermeldung bedeutet, dass meine lokalen Änderungen durch ein Checkout in Git überschrieben würden, bedeutet das, dass ich Modifikationen an bestimmten Dateien in meinem Arbeitsverzeichnis vorgenommen habe und der Branch, zu dem ich wechseln möchte, auch Änderungen an diesen Dateien aufweist. Git warnt mich davor, dass das Wechseln zu dem anderen Branch dazu führen würde, dass meine lokalen Änderungen verworfen werden.
+
+Um diese Situation zu lösen, gibt es einige Möglichkeiten:
+
+1. Änderungen committen: Wenn ich meine lokalen Änderungen behalten und in den Branch integrieren möchte, zu dem ich wechseln möchten, kann ich meine Änderungen vor dem Wechseln committen. Befehle sind folgendes: 
+
+```bash
+Copy code
+git add <Datei1> <Datei2> ...     # Fügen ich die Dateien hinzu, die ich committen möchte
+git commit -m "Ihre Commit-Nachricht"
+```
+
+
+2. Änderungen zwischenspeichern: Wenn ich meine Änderungen noch nicht committen möchte, aber den Branch wechseln möchte, kann ich meine Änderungen zwischenspeichern. Das Zwischenspeichern ermöglicht es mir, meine Modifikationen in einem temporären Bereich zu speichern und sie später anzuwenden. Befehle sind folgendes: 
+
+```bash
+Copy code
+git stash                       # Speichere ich meine lokalen Änderungen
+git checkout <Branch>           # Wechsele ich zu dem gewünschten Branch
+git stash apply                 # Wende ich die zwischengespeicherten Änderungen auf den neuen Branch an
+```
+
+
+3. Änderungen verwerfen: Wenn ich meine lokalen Änderungen nicht behalten möchte und sie vollständig verwerfen möchten, kann ich den folgenden Befehl verwenden, um die modifizierten Dateien auf den Zustand im Branch, zu dem ich wechseln möchten, zurückzusetzen:
+
+
+```bash
+Copy code
+git checkout -f <Branch>        # Verwerfen Sie lokale Änderungen und wechseln Sie zu dem gewünschten Branch
+```
+
+Ich hatte keine Änderungen zu committen, daher habe ich die Möglichkeit 2 ausgewählt. 
+![Alt text](git1.png)
+
+
+#### merge conflict 
+Ein Merge-Konflikt entsteht, wenn zwei oder mehr Personen an denselben Teilen einer Codebasis arbeiten und versuchen, ihre Änderungen zusammenzuführen, aber diese Änderungen sind nicht miteinander kompatibel. Das Versionskontrollsystem (wie Git) kann nicht automatisch entscheiden, wie die Änderungen kombiniert werden sollen, und es ist menschliches Eingreifen erforderlich, um den Konflikt zu lösen.
+
+Hier ist ein schrittweiser Prozess, um einen Merge-Konflikt zu behandeln:
+
+1. Konflikt identifizieren: Das Versionskontrollsystem meldet, dass ein Merge-Konflikt aufgetreten ist, und gibt oft einige Informationen über die Dateien und Zeilen, in denen der Konflikt aufgetreten ist.
+
+2. Konflikt untersuchen: Die Dateien mit Konflikten können in einem Texteditor geöffnet werden. Dabei helfen Konfliktmarker (<<<<<<<, =======, >>>>>>>), die konfliktierenden Änderungen hervorzuheben.
+
+3. Konflikt lösen: Es muss entschieden werden, welche Version von jedem Block beibehalten werden soll: entweder die aktuellen Änderungen, die eingehenden Änderungen, oder eine neue Änderung, die eine Mischung aus beidem sein könnte. Nachdem der Konflikt gelöst wurde, sollten die Konfliktmarker entfernt werden. Bei komplexeren Konflikten ist es manchmal notwendig, mit Teammitgliedern zu sprechen oder Projektanforderungen zu überprüfen, um zu einer Lösung zu kommen.
+
+4. Code testen: Nachdem alle Konflikte gelöst und die Konfliktmarker entfernt wurden, sollte der Code getestet werden, um sicherzustellen, dass alles noch wie erwartet funktioniert.
+
+5. Die gelösten Änderungen committen: Nachdem die Konflikte gelöst sind und der Code funktioniert, können die Änderungen zum Repository hinzugefügt und committet werden. Damit wird ein neuer Merge-Commit erstellt, der zeigt, dass ein Merge-Konflikt gelöst wurde.
+
+Zur effektiven Behandlung von Merge-Konflikten ist gute Kommunikation unter den Teammitgliedern und ein gutes Verständnis der Codebasis wichtig. Regelmäßiges Holen und Integrieren von Änderungen kann dabei helfen, große, komplexe Merge-Konflikte zu vermeiden.
+
+#### rebase
+
+Der Befehl git rebase ist wichtig, um eine saubere und klare Projektgeschichte in einem Git-versionierten Projekt zu erhalten. Hier sind einige Gründe, warum rebase wichtig ist:
+
+1. Lineare Historie: Rebase hilft dabei, eine lineare Projektgeschichte zu erhalten, die einfacher zu verstehen ist als eine Historie mit vielen Verzweigungen und Merges. Es ist viel einfacher, einer geraden Linie zu folgen, als einem Netzwerk von auseinander- und zusammenlaufenden Knoten.
+
+![old](image-6.png)
+Bild 1: Bevor die Branches mit Rebase behandelt wurden, war es schwierig zu unterscheiden, wo der Hauptzweig (main branch) lag. Oft gab es Probleme beim Wechseln zu einem anderen Branch oder beim Erstellen eines neuen Branches.
+
+![new](image-5.png)
+Bild 2 : Nachdem die Branches mittels Rebase bearbeitet wurden, ist klar erkennbar, wo der Hauptzweig liegt. Probleme beim Wechseln zu einem anderen Branch oder beim Erstellen eines neuen Branches wurden gelöst.
+
+2. Vereinfachung der Konfliktlösung: Mit Rebase werden Konflikte aus jedem Commit einzeln gelöst. Das bedeutet, dass bei jeder Konfliktlösung weniger Komplexität zu bewältigen ist, was den Prozess erleichtert.
+
+3. Sauberere Commits und Historie: Bei der Arbeit an einem Feature oder Bugfix machen Entwickler oft viele kleine Commits für jede Änderung, die sie machen. Das ist eine gute Praxis, während man an etwas arbeitet, aber bevor es mit dem Team geteilt wird, kann es hilfreich sein, diese kleinen Commits zu einem kleineren Anzahl größerer Commits "zusammenzufassen". Hier kommt git rebase ins Spiel. Es ermöglicht interaktives Rebasing, das Commits zusammenfassen, umsortieren, Commit-Nachrichten modifizieren usw. kann, was zu einer saubereren und lesbaren Historie führt.
+
+4. Synchronisieren mit dem Hauptzweig (main branch): Mit Rebase kann der eigene Branch mit den neuesten Änderungen vom Hauptzweig aktualisiert werden. Das ist sehr nützlich in aktiven Projekten, in denen ständig neue Commits zum Hauptzweig hinzugefügt werden. Durch regelmäßiges Rebasing des eigenen Branchs mit dem Hauptzweig kann sichergestellt werden, dass der Code mit der neuesten Version des Projekts kompatibel ist, und es erleichtert auch das spätere Zusammenführen der eigenen Änderungen zurück in den Hauptzweig.
+
+Es ist jedoch wichtig zu beachten, dass, obwohl Rebase ein leistungsfähiges Werkzeug ist, es die Commit-Historie umschreibt, was gefährlich sein kann, wenn es nicht richtig gemacht wird. Es wird normalerweise empfohlen, nur lokale Änderungen zu rebasen, die noch nicht mit anderen geteilt wurden. Sobald Commits gepusht und mit anderen geteilt wurden, ist es besser, Updates zu mergen.
