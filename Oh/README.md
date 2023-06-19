@@ -432,9 +432,12 @@ Nun ist ein neuer Branch mit einem Issue bereit. Das heißt, ein Arbeitsfeld nur
 
 
 ### Issues und Bugtrack im konkreten Projekt.
-Wie vorherigen Punkt gesehen ist, werden alle Issues seinen eigenen Branch haben. Nachdem ein Issue als Code implementiert ist, wird der Code gepusht und auf seinen Parent-Branch zusammengeführt.
-Die kleine Branch (auf Deutsch Zweige) stammen von einem Parent-Branch und wenn die fertig gearbeitet wurden, werden sie wieder auf einem Branch zusammengeführt. Sozusagen werden kleine Arbeitsschnitte am Ende ein ganzes Projekt. Die Theorie ist schön, jedoch läuft es in der Praxis nicht immer nach der Plan. Da mehrere Leute auf einem Projekt arbeiten, sollte jeder die vielen Regeln streng befolgen und die Ausnahmen kennen. 
-Hier sind einige Beispiele, die wir bei Git-Bedienung festgesteckt wurden. 
+Wie im vorherigen Punkt gesehen, wird jedes Issue seinen eigenen Branch haben. 
+Nachdem ein Issue als Code umgesetzt ist, wird der Code gepusht und mit dem Parent-Branch zusammengeführt. Die kleinen Branches (auf Deutsch Zweige) stammen von einem Parent-Branch und wenn sie fertig bearbeitet wurden, werden sie wieder mit diesem zusammengeführt. 
+Im Grunde genommen werden aus vielen kleinen Arbeitsschritten am Ende ein ganzes Projekt. 
+Die Theorie ist schön, jedoch läuft es in der Praxis nicht immer nach Plan. 
+Da mehrere Personen an einem Projekt arbeiten, sollte jeder die vielen Regeln strikt befolgen und die Ausnahmen kennen. 
+Hier sind einige Beispiele, bei denen wir bei der Bedienung von Git auf Schwierigkeiten gestoßen sind.
 
 #### Beim Check-out Fehler 
 Die Fehlermeldung bedeutet, dass meine lokalen Änderungen durch ein Checkout in Git überschrieben würden, bedeutet das, dass ich Modifikationen an bestimmten Dateien in meinem Arbeitsverzeichnis vorgenommen habe und der Branch, zu dem ich wechseln möchte, auch Änderungen an diesen Dateien aufweist. Git warnt mich davor, dass das Wechseln zu dem anderen Branch dazu führen würde, dass meine lokalen Änderungen verworfen werden.
